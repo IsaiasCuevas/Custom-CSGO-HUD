@@ -1,7 +1,7 @@
 {
   "GameStateIntegrationPort": 1337,
-  "ServerPort": 2626,
-  "SteamApiKey": "INSERT KEY HERE",
+  "ServerPort": 25565,
+  "SteamApiKey": "EDC01371594BD383A96BCD3C47436D95",
   "PrintPlayerData": false,
   "DisplayAvatars": true,
   "DisplayPlayerAvatars": true,
@@ -13,7 +13,7 @@
   "LeftPrimary": "Primary League Text",
   "LeftSecondary": "Secondary League Text",
   "RightImage": "/files/img/elements/icon_microphone.png",
-  "RightPrimary": "Make sure to follow me",
-  "RightSecondary": "@KomodoAU on Twitter and Twitch",
+  "RightPrimary": "",
+  "RightSecondary": "",
   "GSIToken": "120987"
 }

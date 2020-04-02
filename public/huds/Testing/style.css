@@ -384,7 +384,7 @@ body {
 #timers {
   width: 320px;
   height: 20px;
-  top: 110px;
+  top: 80px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -882,7 +882,7 @@ body {
 }
 
 #box_section {
-  width: 395px;
+  width: 370px;
   height: 220px;
   position: relative;
   display: flex;
@@ -891,16 +891,16 @@ body {
 }
 
 #players_left > #box_section {
-  left: 5px;
+  left: -5px;
 }
 
 #players_right > #box_section {
-  left: 185px;
+  left: 220px;
 }
 
 #player_section {
   width: 100%;
-  height: 370px;
+  height: 250px;
   position: relative;
   top: 5px;
 }
@@ -1411,7 +1411,7 @@ body {
 #player4,
 #player5 {
   width: 100%;
-  height: 55px;
+  height: 50px;
   position: relative;
   margin-bottom: 0px;
 }
@@ -1433,7 +1433,6 @@ body {
 .player_side_bar {
   width: 5px;
   height: 45px;
-  top: 5px;
   position: absolute;
   background-color: var(--dev-purple);
 }
@@ -1450,12 +1449,8 @@ body {
   background-color: var(--sub-panel-color);
 }
 
-#players_left .player_image_holder {
-  left: 20px;
-}
-
 #players_right .player_image_holder {
-  left: 330px;
+  left: 345px;
 }
 
 #player_image {
@@ -1470,17 +1465,17 @@ body {
 
 .player_section_top {
   width: 320px;
-  height: 40%;
+  height: 22.5px;
   position: absolute;
   background-color: var(--main-panel-color);
 }
 
 #players_left .player_section_top {
-  left: 65px;
+  left: 50px;
 }
 
 #players_right .player_section_top {
-  right: 75px;
+  right: 60px;
 }
 
 .player_health_bar {
@@ -1600,18 +1595,18 @@ body {
 
 .player_section_bottom {
   width: 320px;
-  height: 40%;
+  height: 22.5px;
   position: absolute;
   top: 40%;
   background-color: var(--sub-panel-color);
 }
 
 #players_left .player_section_bottom {
-  left: 65px;
+  left: 50px;
 }
 
 #players_right .player_section_bottom {
-  left: 10px;
+  left: 25px;
 }
 
 .player_armor {
@@ -1852,14 +1847,14 @@ body {
 }
 
 #players_left .player_hindered {
-  right: -80px;
+  right: -45px;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
 }
 
 #players_right .player_hindered {
-  left: -80px;
+  left: -60px;
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
@@ -1996,16 +1991,15 @@ body {
 .player_spec {
   width: 5px;
   height: 60px;
-  top: 5px;
   position: absolute;
 }
 
 #players_left .player_spec {
-  left: 400px;
+  left: 365px;
 }
 
 #players_right .player_spec {
-  right: 400px;
+  right: 365px;
 }
 
 #player_spec_bar {
@@ -2024,11 +2018,13 @@ body {
 }
 
 #players_left .player_stats_holder {
-  left: 405px;
+  left: 365px;
+  background: radial-gradient(circle at left, var(--main-panel-color), var(--main-panel-color-transparent));
 }
 
 #players_right .player_stats_holder {
-  right: 405px;
+  right: 365px;
+  background: radial-gradient(circle at right, var(--main-panel-color), var(--main-panel-color-transparent));
 }
 
 .player_stats {
@@ -2671,6 +2667,7 @@ body {
 
 :root {
   --main-panel-color: rgba(12, 15, 18, 0.75);
+  --main-panel-color-transparent: rgba(12, 15, 18, 0.05);
   --sub-panel-color: rgba(12, 15, 18, 0.6);
   --white-dull: rgba(250, 250, 250, 0.25);
   --white-full: rgba(250, 250, 250, 1);
