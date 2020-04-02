@@ -10,10 +10,10 @@ body {
 }
 
 #top_panel {
-  width: 1100px;
-  height: 70px;
+  width: 1300px;
+  height: 80px;
   position: fixed;
-  top: 10px;
+  top: 0px;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--main-panel-color);
@@ -22,14 +22,14 @@ body {
 #left_team {
   position: relative;
   float: left;
-  width: 490px;
+  width: 590px;
   height: 70px;
 }
 
 #right_team {
   position: relative;
   float: right;
-  width: 490px;
+  width: 590px;
   height: 70px;
 }
 
@@ -40,7 +40,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 70px;
+  line-height: 90px;
   font-size: 30px;
   font-weight: bold;
   text-overflow: ellipsis;
@@ -60,7 +60,7 @@ body {
 #logo {
   position: relative;
   width: 80px;
-  height: 70px;
+  height: 50px;
 }
 
 #left_team #logo {
@@ -75,7 +75,7 @@ body {
   position: relative;
   width: 60px;
   height: 60px;
-  top: 5px;
+  top: 10px;
 }
 
 #left_team #team_logo {
@@ -84,8 +84,8 @@ body {
 }
 
 #right_team #team_logo {
-  float: right;
-  right: 10px;
+  float: left;
+  right: -5px;
 }
 
 #team_flag {
@@ -130,15 +130,16 @@ body {
 }
 
 #score {
-  position: relative;
-  width: 70px;
-  height: 70px;
+  position: relative;                   
+  width: 120px;
+  height: 80px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 70px;
-  font-size: 50px;
+  line-height: 90px;
+  font-size: 55px;
   font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.507);
 }
 
 #left_team #score {
@@ -154,7 +155,7 @@ body {
 .bar {
   position: relative;
   width: 5px;
-  height: 50px;
+  height: 60px;
   top: 10px;
   background-color: var(--dev-purple);
 }
@@ -212,13 +213,13 @@ body {
   position: relative;
   float: left;
   width: 120;
-  height: 70px;
+  height: 100px;
 }
 
 #round_timer {
   position: absolute;
   float: left;
-  top: 15px;
+  top: 25px;
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
@@ -232,8 +233,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 60px;
-  font-size: 30px;
+  line-height: 55px;
+  font-size: 40px;
   font-weight: bold;
   color: var(--dev-purple);
 
@@ -252,7 +253,7 @@ body {
   text-align: center;
   vertical-align: text-bottom;
   line-height: 24px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
 }
 
@@ -383,7 +384,7 @@ body {
 #timers {
   width: 320px;
   height: 20px;
-  top: 80px;
+  top: 110px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -394,7 +395,7 @@ body {
   height: 10px;
   position: relative;
   background-color: var(--color-bomb);
-  opacity: 0;
+  opacity: 1;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -467,7 +468,7 @@ body {
   width: 620px;
   height: 190px;
   position: fixed;
-  bottom: 70px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -602,8 +603,8 @@ body {
 }
 
 #obs_health_img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   position: relative;
   left: 4px;
   top: 10px;
@@ -632,8 +633,8 @@ body {
 }
 
 #obs_armor_img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   position: relative;
   left: 3px;
   top: 10px;
@@ -736,9 +737,10 @@ body {
   text-align: right;
   vertical-align: text-bottom;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: var(--dev-purple);
+ 
 }
 
 #obs_kills_text,
@@ -756,6 +758,8 @@ body {
   font-size: 20px;
   font-weight: normal;
   color: var(--white-full);
+  margin-left: 4px;
+  text-shadow: 1px 1px lightgray;
 }
 
 #obs_nades {
@@ -1407,39 +1411,47 @@ body {
 #player4,
 #player5 {
   width: 100%;
-  height: 70px;
+  height: 55px;
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 .player_main_holder {
   width: 405px;
-  height: 70px;
+  height: 55px;
   position: absolute;
 }
 
 #players_right .player_main_holder {
-  left: 180px;
+  left: 195px;
+}
+
+#players_left .player_main_holder {
+  right: 185px;
 }
 
 .player_side_bar {
   width: 5px;
-  height: 60px;
+  height: 45px;
   top: 5px;
   position: absolute;
   background-color: var(--dev-purple);
 }
 
 #players_right .player_side_bar {
-  left: 400px;
+  left: 390px;
 }
 
 .player_image_holder {
-  width: 70px;
-  height: 70px;
+  width: 45px;
+  height: 45px;
   position: absolute;
   left: 5px;
   background-color: var(--sub-panel-color);
+}
+
+#players_left .player_image_holder {
+  left: 20px;
 }
 
 #players_right .player_image_holder {
@@ -1448,8 +1460,8 @@ body {
 
 #player_image {
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: 45px;
+  height: 45px;
 }
 
 #player_image.dead {
@@ -1457,14 +1469,14 @@ body {
 }
 
 .player_section_top {
-  width: 325px;
-  height: 50%;
+  width: 320px;
+  height: 40%;
   position: absolute;
   background-color: var(--main-panel-color);
 }
 
 #players_left .player_section_top {
-  left: 75px;
+  left: 65px;
 }
 
 #players_right .player_section_top {
@@ -1503,8 +1515,8 @@ body {
 #player_health_text {
   font-family: Arial, Helvetica, sans-serif;
   vertical-align: text-bottom;
-  line-height: 40px;
-  font-size: 20px;
+  line-height: 25px;
+  font-size: 18px;
   font-weight: normal;
   text-align: center;
   position: relative;
@@ -1519,18 +1531,18 @@ body {
 }
 
 #players_left .player_alias {
-  left: 40px;
+  left: 50px;
 }
 
 #players_right .player_alias {
-  right: 40px;
+  right: 50px;
 }
 
 #player_alias_text {
   font-family: Arial, Helvetica, sans-serif;
   vertical-align: text-bottom;
-  line-height: 40px;
-  font-size: 20px;
+  line-height: 25px;
+  font-size: 18px;
   font-weight: normal;
   position: relative;
   text-overflow: ellipsis;
@@ -1549,22 +1561,22 @@ body {
 
 .player_weapon_primary {
   width: 100px;
-  height: 25px;
+  height: 15px;
   position: relative;
   top: 5px;
 }
 
 #players_left .player_weapon_primary {
-  left: 223px;
+  left: 210px;
 }
 
 #players_right .player_weapon_primary {
-  left: 2px;
+  left: 15px;
 }
 
 #player_weapon_primary_img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
 }
 
 #player_weapon_primary_img {
@@ -1587,24 +1599,24 @@ body {
 }
 
 .player_section_bottom {
-  width: 325px;
-  height: 50%;
+  width: 320px;
+  height: 40%;
   position: absolute;
-  top: 50%;
+  top: 40%;
   background-color: var(--sub-panel-color);
 }
 
 #players_left .player_section_bottom {
-  left: 75px;
+  left: 65px;
 }
 
 #players_right .player_section_bottom {
-  left: 5px;
+  left: 10px;
 }
 
 .player_armor {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   top: 5px;
   position: absolute;
 }
@@ -1618,13 +1630,13 @@ body {
 }
 
 #player_armor_image {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
 }
 
 .player_bomb_kit {
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
   position: absolute;
   top: 5px;
 }
@@ -1638,8 +1650,8 @@ body {
 }
 
 #player_bomb_kit_image {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
 }
 
 .player_current_money {
@@ -1659,10 +1671,12 @@ body {
 #player_current_money_text {
   font-family: Arial, Helvetica, sans-serif;
   vertical-align: text-bottom;
-  line-height: 42px;
-  font-size: 18px;
+  line-height: 25px;
+  font-size: 16px;
   font-weight: normal;
   position: relative;
+  font-weight: bold;
+  text-shadow: 1px 1px darkgreen;
   color: var(--color-moneys);
 }
 
@@ -1692,9 +1706,9 @@ body {
 
 #player_skull {
   width: 18px;
-  height: 18px;
+  height: 20                px;
   position: absolute;
-  top: 9px;
+  top: 2px;
 }
 
 #players_left #player_skull {
@@ -1708,8 +1722,8 @@ body {
 #player_round_kills_text {
   font-family: Arial, Helvetica, sans-serif;
   vertical-align: text-bottom;
-  line-height: 42px;
-  font-size: 20px;
+  line-height: 20px;
+  font-size: 16px;
   font-weight: normal;
   position: relative;
   color: var(--white-full);
@@ -1742,7 +1756,7 @@ body {
 
 #player_nade1 {
   width: 20px;
-  height: 35px;
+  height: 22px;
   position: absolute;
 }
 
@@ -1756,7 +1770,7 @@ body {
 
 #player_nade2 {
   width: 20px;
-  height: 35px;
+  height: 22px;
   position: absolute;
 }
 
@@ -1770,7 +1784,7 @@ body {
 
 #player_nade3 {
   width: 20px;
-  height: 35px;
+  height: 22px;
   position: absolute;
 }
 
@@ -1784,7 +1798,7 @@ body {
 
 #player_nade4 {
   width: 20px;
-  height: 35px;
+  height: 22px;
   position: absolute;
 }
 
@@ -1798,23 +1812,23 @@ body {
 
 .player_weapon_secondary {
   width: 60px;
-  height: 25px;
+  height: 15px;
   position: relative;
   top: 5px;
 }
 
 #players_left .player_weapon_secondary {
-  left: 263px;
+  left: 250px;
 }
 
 #players_right .player_weapon_secondary {
-  left: 2px;
+  left: 15px;
 }
 
 #player_weapon_secondary_img {
   position: absolute;
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 80%;
+  max-width: 80%;
   width: auto;
   height: auto;
   top: 0;
@@ -1890,11 +1904,11 @@ body {
 }
 
 #players_left .burning {
-  right: 0px;
+  right: 10px;
 }
 
 #players_right .burning {
-  left: 0px;
+  left: 10px;
 }
 
 #burning_level {
@@ -1921,11 +1935,11 @@ body {
 }
 
 #players_left .player_dead {
-  right: 5px;
+  right: 25px;
 }
 
 #players_right .player_dead {
-  left: 5px;
+  left: 20px;
 }
 
 .player_dead_k {
@@ -1958,8 +1972,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 42px;
-  font-size: 20px;
+  line-height: 25px;
+  font-size: 18px;
   font-weight: bold;
   color: var(--white-half);
 }
@@ -1973,9 +1987,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 40px;
-  font-size: 20px;
-  font-weight: normal;
+  line-height: 0px;
+  font-size: 15px;
+  font-weight: bold;
   color: var(--white-half);
 }
 
@@ -1996,15 +2010,15 @@ body {
 
 #player_spec_bar {
   width: 100%;
-  height: 100%;
+  height: 75%;
   position: relative;
 }
 
 .player_stats_holder {
   width: 180px;
-  height: 60px;
+  height: 45px;
   position: absolute;
-  top: 5px;
+  top: 0px;
   background-color: var(--main-panel-color);
   z-index: -1;
 }
@@ -2088,8 +2102,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 42px;
-  font-size: 20px;
+  line-height: 35px;
+  font-size: 18px;
   font-weight: bold;
   color: var(--dev-purple);
 }
@@ -2103,8 +2117,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 30px;
-  font-size: 20px;
+  line-height: 6px;
+  font-size: 18px;
   font-weight: normal;
   color: var(--white-full);
 }
@@ -2594,8 +2608,8 @@ body {
 
 .player_skull_default {
   background-image: url("/files/img/elements/icon_skull_default.png");
-  max-height: 18px;
-  max-width: 18px;
+  max-height: 16px;
+  max-width: 16px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
