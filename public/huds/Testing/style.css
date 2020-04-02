@@ -51,10 +51,12 @@ body {
 
 #left_team #main {
   float: left;
+  right: 5;
 }
 
 #right_team #main {
   float: right;
+  left: 10px;
 }
 
 #logo {
@@ -118,7 +120,7 @@ body {
 #best_of {
   position: relative;
   width: 30px;
-  height: 70px;
+  height: 80px;
 }
 
 #left_team #best_of {
@@ -155,8 +157,8 @@ body {
 .bar {
   position: relative;
   width: 5px;
-  height: 60px;
-  top: 10px;
+  height: 70px;
+  top: 5px;
   background-color: var(--dev-purple);
 }
 
@@ -174,31 +176,31 @@ body {
 .block1 {
   position: absolute;
   left: 10px;
-  top: 15px;
+  top: 20px;
 }
 
 .block2 {
   position: absolute;
   left: 10px;
-  top: 30px;
+  top: 35px;
 }
 
 .block3 {
   position: absolute;
   left: 10px;
-  top: 45px;
+  top: 50px;
 }
 
 .block4 {
   position: absolute;
   left: 10px;
-  top: 22.5px;
+  top: 27.5px;
 }
 
 .block5 {
   position: absolute;
   left: 10px;
-  top: 37.5px;
+  top: 42.5px;
 }
 
 #left_team .bar {
@@ -307,8 +309,7 @@ body {
 #alert_pole_right {
   position: absolute;
   width: 5px;
-  height: 30px;
-  top: 5px;
+  height: 40px;
   background-color: var(--dev-purple);
 }
 
@@ -580,10 +581,9 @@ body {
 
 #obs_lane3_left_pole {
   width: 5px;
-  height: 40px;
+  height: 50px;
   position: absolute;
   left: -5px;
-  bottom: 5px;
   background-color: var(--dev-purple);
 }
 
@@ -858,10 +858,9 @@ body {
 
 #obs_lane3_right_pole {
   width: 5px;
-  height: 40px;
+  height: 50px;
   position: absolute;
   left: 620px;
-  bottom: 5px;
   background-color: var(--dev-purple);
 }
 
@@ -1028,7 +1027,7 @@ body {
   color: var(--white-full);
   position: relative;
   top: -23px;
-  left: 246px;
+  left: 230px;
 }
 
 .box_grenades {
@@ -1038,7 +1037,7 @@ body {
 }
 
 .box_nade_1 {
-  width: 90px;
+  width: 85px;
   height: 50px;
   position: absolute;
   left: 0px;
@@ -1118,7 +1117,6 @@ body {
   background-size: contain;
   background-position: center;
   position: absolute;
-  /* left: 5px; */
   top: -4px;
 }
 
@@ -1137,10 +1135,10 @@ body {
 }
 
 .box_nade_2 {
-  width: 90px;
+  width: 85px;
   height: 50px;
   position: absolute;
-  left: 101px;
+  left: 95px;
 }
 
 #util_nade_2 {
@@ -1168,10 +1166,10 @@ body {
 }
 
 .box_nade_3 {
-  width: 90px;
+  width: 85px;
   height: 50px;
   position: absolute;
-  right: 101px;
+  left: 190px;
 }
 
 #util_nade_3 {
@@ -1199,10 +1197,10 @@ body {
 }
 
 .box_nade_4 {
-  width: 90px;
+  width: 85px;
   height: 50px;
   position: absolute;
-  right: 0px;
+  left: 285px;
 }
 
 #util_nade_4 {
@@ -1238,17 +1236,17 @@ body {
 }
 
 .box_equip_value {
-  width: 135px;
+  width: 123px;
   height: 70px;
   position: absolute;
 }
 
 #players_left .box_equip_value {
-  right: 5px;
+  left: 246px;
 }
 
 #players_right .box_equip_value {
-  left: 5px;
+  right: 246px;
 }
 
 #equip_text {
@@ -1318,21 +1316,21 @@ body {
 }
 
 .box_team_money {
-  width: 135px;
+  width: 123px;
   height: 70px;
   position: absolute;
 }
 
 #players_left .box_team_money {
-  right: 140px;
+  left: 123px;
 }
 
 #players_right .box_team_money {
-  left: 140px;
+  right: 123px;
 }
 
 .loss_bonus {
-  width: 135px;
+  width: 123px;
   height: 70px;
   position: absolute;
 }
@@ -1504,7 +1502,7 @@ body {
 }
 
 #players_right .player_health {
-  left: 285px;
+  left: 280px;
 }
 
 #player_health_text {
@@ -1841,7 +1839,7 @@ body {
 
 .player_hindered {
   width: 80px;
-  height: 70px;
+  height: 45px;
   position: absolute;
   z-index: -1;
 }
