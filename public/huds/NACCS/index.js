@@ -871,7 +871,7 @@ function fillPlayer(player, nr, side, observed, phase, previously) {
   $kda_money.find("#player_deaths_d").css("color", side_color);
   $kda_money.find("#player_deaths_text").text(stats.deaths);
   $player.find("#player_dead_deaths_text").text(stats.deaths);
-  $player.find("#player_dead_adr_text").text(player_adr[player.name]);
+  $player.find("#player_dead_adr_text").text(Math.floor(player_adr[player.name]));
 
   if (dead) {
     $bottom.find("#player_bomb_kit_image").css("opacity", 0);
