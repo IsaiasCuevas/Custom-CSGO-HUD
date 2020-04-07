@@ -905,7 +905,7 @@ body {
 #box_top {
   width: 100%;
   height: 70px;
-  background-color: var(--main-panel-color);
+  background-color: var(--sub-panel-color);
 }
 
 #box_img {
@@ -994,7 +994,7 @@ body {
   width: 100%;
   height: 70px;
   margin-top: 5px;
-  background-color: var(--main-panel-color);
+  background-color: var(--sub-panel-color);
   display: none;
 }
 
@@ -1229,7 +1229,7 @@ body {
   width: 100%;
   height: 70px;
   margin-top: 5px;
-  background-color: var(--main-panel-color);
+  background-color: var(--sub-panel-color);
   display: none;
 }
 
