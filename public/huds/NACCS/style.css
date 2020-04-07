@@ -435,8 +435,7 @@ body {
   position: relative;
   float: left;
   width: 5px;
-  height: 30px;
-  top: 5px;
+  height: 40px;
   left: -5px;
   background-color: var(--dev-purple);
 }
@@ -445,8 +444,7 @@ body {
   position: relative;
   float: right;
   width: 5px;
-  height: 30px;
-  top: 5px;
+  height: 40px;
   right: -5px;
   background-color: var(--dev-purple);
 }
@@ -1845,7 +1843,7 @@ body {
 }
 
 #players_left .player_hindered {
-  right: -45px;
+  right: -50px;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
@@ -1860,7 +1858,7 @@ body {
 
 .flashed {
   width: 40px;
-  height: 70px;
+  height: 45px;
   position: relative;
   display: none;
 }
@@ -1875,7 +1873,7 @@ body {
 
 #flashed_level {
   width: 34px;
-  height: 70px;
+  height: 45px;
   position: relative;
   left: 3px;
 }
@@ -1891,7 +1889,7 @@ body {
 
 .burning {
   width: 40px;
-  height: 70px;
+  height: 45px;
   position: relative;
   display: none;
 }
@@ -1906,7 +1904,7 @@ body {
 
 #burning_level {
   width: 34px;
-  height: 70px;
+  height: 45px;
   position: relative;
   left: 3px;
 }
@@ -1928,11 +1926,11 @@ body {
 }
 
 #players_left .player_dead {
-  right: 25px;
+  right: 35px;
 }
 
 #players_right .player_dead {
-  left: 20px;
+  left: 25px;
 }
 
 .player_dead_k {
