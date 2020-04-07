@@ -1919,8 +1919,8 @@ body {
 }
 
 .player_dead {
-  width: 100px;
-  height: 70px;
+  width: 150px;
+  height: 45px;
   position: absolute;
   opacity: 0;
 }
@@ -1954,9 +1954,17 @@ body {
   left: 68px;
 }
 
+.player_dead_adr {
+  width: 32px;
+  height: 100%;
+  position: absolute;
+  left: 102px;
+}
+
 #player_dead_kills_k,
 #player_dead_assists_a,
-#player_dead_deaths_d {
+#player_dead_deaths_d,
+#player_dead_adr_adr {
   width: 32px;
   height: 35px;
   position: relative;
@@ -1971,7 +1979,8 @@ body {
 
 #player_dead_kills_text,
 #player_dead_assists_text,
-#player_dead_deaths_text {
+#player_dead_deaths_text,
+#player_dead_adr_text {
   width: 32px;
   height: 35px;
   position: relative;

@@ -25,6 +25,10 @@ var round_now = 0;
 var last_round = 0;
 var freezetime = false;
 
+var round_start = true;
+var player_damage = {};
+var player_adr = {};
+
 function updatePage(data) {
   var matchup = data.getMatchType();
   var match = data.getMatch();
@@ -178,7 +182,7 @@ function updateLeague() {
 }
 
 function updateRoundNow(round, map) {
-  round_now = teams.left.score + teams.right.score + (round.phase == "over" || round.phase == "intermission" ? 0 : 1);
+  round_now = teams.left.score + teams.right.score +  1;
   if(round_now > 30) {
     $("#round_number").text("Round " + (round_now-29)%6-1 + " / 6");
   }
@@ -204,10 +208,10 @@ function updateRoundState(phase, round, map, previously, bomb, players) {
       updateStateLive(phase, bomb, players, previously);
       break;
     case "over":
-      updateStateOver(phase, round, previously);
+      updateStateOver(phase, round, players, previously);
       break;
     case "bomb":
-      updateStatePlanted(phase, round, previously);
+      updateStatePlanted(phase, round, players, previously);
       break;
     case "defuse":
       updateStateDefuse(phase, bomb, players);
@@ -240,6 +244,7 @@ function updateStateFreezetime(phase, previously) {
     removeRoundTimeGraphics();
     resetBomb();
     showPlayerStats(phase);
+    round_start = true;
     $("#players_left #box_utility").slideDown(500);
     $("#players_right #box_utility").slideDown(500);
     $("#players_left #box_monetary").slideDown(500);
@@ -294,8 +299,10 @@ function updateStateFreezetime(phase, previously) {
   }
 }
 
-function updateStateOver(phase, round, previously) {
+function updateStateOver(phase, round, players, previously) {
   if (phase) {
+    updateADR(players);
+    round_start = false;
     $("#round_timer_text").css("color", COLOR_GRAY);
     //#region Which Team Won
     if (round.win_team == "CT") {
@@ -383,8 +390,9 @@ function updateStateOver(phase, round, previously) {
   }
 }
 
-function updateStatePlanted(phase, round, previously) {
+function updateStatePlanted(phase, round, players, previously) {
   if (phase) {
+    updateADR(players);
     if (round.bomb == "planted") {
       if (checkPrev(previously, "live")) {
         $("#players_left #box_utility").slideDown(500);
@@ -438,6 +446,7 @@ function updateStatePlanted(phase, round, previously) {
 
 function updateStateDefuse(phase, bomb, players) {
   if (phase) {
+    updateADR(players);
     if (phase.phase == "defuse") {
       let side = teams.left.side == "t" ? "#left_team" : "#right_team";
       if (!isDefusing) {
@@ -482,6 +491,7 @@ function updateStateDefuse(phase, bomb, players) {
 
 function updateStateLive(phase, bomb, players, previously) {
   if (phase) {
+    updateADR(players);
     removeRoundTimeGraphics();
     forceRemoveAlerts();
     resetBomb();
@@ -861,6 +871,7 @@ function fillPlayer(player, nr, side, observed, phase, previously) {
   $kda_money.find("#player_deaths_d").css("color", side_color);
   $kda_money.find("#player_deaths_text").text(stats.deaths);
   $player.find("#player_dead_deaths_text").text(stats.deaths);
+  $player.find("#player_dead_adr_text").text(player_adr[player.name]);
 
   if (dead) {
     $bottom.find("#player_bomb_kit_image").css("opacity", 0);
@@ -1548,5 +1559,23 @@ function printPlayerData(players) {
     });
     console.log(players_data);
     printed_player_data = true;
+  }
+}
+
+function updateADR(players) {
+  if(round_start){
+    for(player of players) {
+      name = player.name
+      if(!player_damage[name]) {
+        player_damage[name] = {};
+        player_damage[name][round_now] = 0;
+      }
+      player_damage[name][round_now] = player.state.round_totaldmg;
+      let total_damage = 0
+      for(damage of Object.values(player_damage[name])) {
+        total_damage += damage
+      }
+      player_adr[name] = total_damage / round_now
+    }
   }
 }
