@@ -412,14 +412,14 @@ body {
 }
 
 #right_bomb_bar {
-  width: 275px;
+  width: 255px;
   height: 10px;
   position: relative;
   background-color: var(--color-bomb);
   opacity: 0;
   margin-top: -25px;
-  left: 195%;
-  transform: translateX(-50%);
+  left: 150%;
+
 }
 
 #left_bomb_bar {
@@ -429,8 +429,7 @@ body {
   background-color: var(--color-bomb);
   opacity: 0;
   margin-top: -15px;
-  left: -100%;
-  transform: translateX(-50%);
+  left: -145%;
 }
 
 #right_bomb_logo{
@@ -438,7 +437,7 @@ body {
   height: auto;
   position: relative;
   opacity: 0;
-  left: 125%;
+  left: 120%;
   z-index: 1;
 }
 
@@ -479,7 +478,7 @@ body {
   position: relative;
   width: 391px;
   opacity: 0;
-  margin-top: -40px;
+  margin-top: -45px;
 }
 
 #right_defuse_holder{
@@ -489,7 +488,7 @@ body {
   position: relative;
   width: 391px;
   opacity: 0;
-  margin-top: -25px;
+  margin-top: -30px;
 }
 
 #left_defuse_bar {
@@ -498,8 +497,9 @@ body {
   position: relative;
   background-color: var(--color-defuse);
   opacity: 0;
-  left: -90%;
-  transform: translateX(-50%);
+  left: -110%;
+  margin-top: -10px;
+
 }
 
 #right_defuse_bar {
@@ -508,9 +508,8 @@ body {
   position: relative;
   background-color: var(--color-defuse);
   opacity: 0;
-  left: 200%;
-  transform: translateX(-50%);
-  margin-top: -35px;
+  left: 175%;
+  margin-top: -25px;
 }
 
 #right_kit_logo{
@@ -528,7 +527,26 @@ body {
   height: auto;
   position: relative;
   opacity: 0;
-  left: 125%;
+  left: -85%;
+  z-index: 1;
+}
+
+#left_nokit_logo{
+  width: 35px;
+  height: auto;
+  position: relative;
+  opacity: 0;
+  left: -195%;
+  margin-bottom: 5px;
+  z-index: 1;
+}
+#right_nokit_logo{
+  width: 35px;
+  height: auto;
+  position: relative;
+  opacity: 0;
+  left: 75%;
+  margin-bottom: 5px;
   z-index: 1;
 }
 
