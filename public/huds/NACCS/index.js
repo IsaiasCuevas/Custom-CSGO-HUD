@@ -182,9 +182,9 @@ function updateLeague() {
 }
 
 function updateRoundNow(round, map) {
-  round_now = teams.left.score + teams.right.score +  1;
-  if(round_now > 30) {
-    $("#round_number").text("Round " + (round_now-29)%6-1 + " / 6");
+  round_now = teams.left.score + teams.right.score + 1;
+  if (round_now > 30) {
+    $("#round_number").text("Round " + (round_now - 29) % 6 - 1 + " / 6");
   }
   $("#round_number").text("Round " + round_now + " / 30");
   if ((round.phase == "freezetime" && !freezetime) || round_now != last_round) {
@@ -353,9 +353,9 @@ function updateStateOver(phase, round, players, previously) {
               animateRoundTimer("round_time_reached", false);
             }
           } else if (!t_alive) {
-          // * CT ELIMINATE T
-          animateRoundTimer("players_eliminated_CT", false);
-        }
+            // * CT ELIMINATE T
+            animateRoundTimer("players_eliminated_CT", false);
+          }
       }
     } else if (round.bomb == "planted") {
       if (checkPrev(previously, "live")) animateRoundTimer("players_eliminated_T", false);
@@ -380,7 +380,14 @@ function updateStateOver(phase, round, players, previously) {
           $(_side + " #alert #alert_text").removeClass("animated flash");
         });
         animateRoundTimer("bomb_defused", true);
-        $("#timers #defuse_bar").css("opacity", 0);
+        $("#timers #left_defuse_holder").css("opacity", 0);
+        $("#timers #right_defuse_holder").css("opacity", 0);
+        $("#timers #right_kit_logo").css("opacity", 0);
+        $("#timers #left_kit_logo").css("opacity", 0);
+        $("#timers #right_nokit_logo").css("opacity", 0);
+        $("#timers #left_nokit_logo").css("opacity", 0);
+        $("#timers #right_defuse_bar").css("opacity", 0);
+        $("#timers #left_defuse_bar").css("opacity", 0);
         $("#left_team #bomb_defuse #icon").css("opacity", 0);
         $("#left_team #bomb_defuse #kit_bar").css("opacity", 0);
         $("#right_team #bomb_defuse #icon").css("opacity", 0);
@@ -435,11 +442,18 @@ function updateStatePlanted(phase, round, players, previously) {
           .css("animation-iteration-count", "infinite");
       }
       bomb(parseFloat(phase.phase_ends_in));
-      $("#timers #defuse_bar").css("opacity", 0);
+      $("#timers #right_defuse_bar").css("opacity", 0);
+      $("#timers #left_defuse_bar").css("opacity", 0);
       $("#left_team #bomb_defuse #icon").css("opacity", 0);
       $("#left_team #bomb_defuse #kit_bar").css("opacity", 0);
       $("#right_team #bomb_defuse #icon").css("opacity", 0);
       $("#right_team #bomb_defuse #kit_bar").css("opacity", 0);
+      $("#timers #left_defuse_holder").css("opacity", 0);
+      $("#timers #right_defuse_holder").css("opacity", 0);
+      $("#timers #right_kit_logo").css("opacity", 0);
+      $("#timers #left_kit_logo").css("opacity", 0);
+      $("#timers #right_nokit_logo").css("opacity", 0);
+      $("#timers #left_nokit_logo").css("opacity", 0);
     }
   }
 }
@@ -464,14 +478,13 @@ function updateStateDefuse(phase, bomb, players) {
       }
       var defuse_timer_css = {
         opacity: 1,
-        width: (25 / divider) * (parseFloat(phase.phase_ends_in) / defuse_seconds) + "%"
+        width: (65 / divider) * (parseFloat(phase.phase_ends_in) / defuse_seconds) + "%"
       };
       let defusing_side = teams.left.side == "ct" ? "#left_team" : "#right_team";
       $(defusing_side + " #bomb_defuse #icon").css("opacity", hasKit ? 1 : 0);
       $(defusing_side + " #bomb_defuse #kit_bar")
         .css("background-color", COLOR_NEW_CT)
-        .css("opacity", hasKit ? 1 : 0);
-      $("#timers #defuse_bar").css(defuse_timer_css);
+        .css("opacity", hasKit ? 1 : 0)
 
       if (bomb != null) {
         if (bomb.state == "defusing") {
@@ -481,8 +494,30 @@ function updateStateDefuse(phase, bomb, players) {
               defuser = _player;
             }
           });
+          if (teams.left.side == "t") {
+            if (hasKit) {
+              $("#timers #right_kit_logo").css("opacity", 1);
+            }
+            else {
+              $("#timers #right_nokit_logo").css("opacity", .5);
+            }
+            $("#timers #right_defuse_bar").css(defuse_timer_css);
+            $("#timers #right_defuse_holder").css("opacity", 1);
+            $("#timers #right_defuse_bar").css("opacity", 1);
+
+          } else if (teams.right.side == "t") {
+            if (hasKit) {
+              $("#timers #left_kit_logo").css("opacity", 1);
+            }
+            else {
+              $("#timers #left_nokit_logo").css("opacity", .5);
+            }
+            $("#timers #left_defuse_bar").css(defuse_timer_css);
+            $("#timers #left_defuse_holder").css("opacity", 1);
+            $("#timers #left_defuse_bar").css("opacity", 1);
+          }
           // 13 characters for name
-          showAlertSlide(defusing_side, COLOR_NEW_CT, defuser.name + " is defusing the bomb");
+          //showAlertSlide(defusing_side, COLOR_NEW_CT, defuser.name + " is defusing the bomb");
         }
       }
     }
@@ -828,9 +863,9 @@ function fillPlayer(player, nr, side, observed, phase, previously) {
       // Custom Set Avatar
       if (player.avatar)
         $player
-        .find("#player_image")
-        .attr("src", "/storage/" + player.avatar)
-        .addClass(dead ? "dead" : "");
+          .find("#player_image")
+          .attr("src", "/storage/" + player.avatar)
+          .addClass(dead ? "dead" : "");
     } else {
       // Just Use Team Logo
       if (team == "ct") {
@@ -1087,7 +1122,22 @@ function bomb(time) {
           opacity: 1,
           width: (bomb_time * 100) / 40 + "%"
         };
-        $("#timers #bomb_bar").css(bomb_timer_css);
+        if (teams.left.side == "t") {
+          $("#timers #left_bomb_bar").css(bomb_timer_css);
+          $("#timers #left_bomb_bar").css("opacity", 1);
+          $("#timers #left_bomb_holder").css("opacity", 1);
+          $("#timers #left_bomb_logo").css("opacity", 1);
+          $("#timers #left_bomb_timer_pole").css("opacity", 1);
+          $("#timers #bomb_logo").css("opacity", 1);
+          $("#timers #bomb_timer_pole").css("opacity", 1);
+        } else if (teams.right.side == "t") {
+          $("#timers #right_bomb_bar").css(bomb_timer_css);
+          $("#timers #right_bomb_bar").css("opacity", 1);
+          $("#timers #right_bomb_holder").css("opacity", 1);
+          $("#timers #right_bomb_logo").css("opacity", 1);
+          $("#timers #right_bomb_timer_pole").css("opacity", 1);
+          $("#timers #bomb_logo").css("opacity", 1);
+        }
         bomb_time = bomb_time - 0.01;
       }, 10);
     } else {
@@ -1099,15 +1149,27 @@ function bomb(time) {
 function resetBomb() {
   clearInterval(bomb_timer);
   if (teams.left.side == "t") {
-    $("#timers #bomb_bar").css("opacity", 0);
-    $("#timers #defuse_bar").css("opacity", 0);
+    $("#timers #left_bomb_bar").css("opacity", 0);
+    $("#timers #left_bomb_holder").css("opacity", 0);
+    $("#timers #left_defuse_holder").css("opacity", 0);
+    $("#timers #left_kit_logo").css("opacity", 0);
+    $("#timers #left_nokit_logo").css("opacity", 0);
+    $("#timers #left_defuse_bar").css("opacity", 0);
+    $("#timers #left_bomb_logo").css("opacity", 0);
+    $("#timers #left_bomb_timer_pole").css("opacity", 0);
     $("#left_team #bomb_defuse #icon").css("opacity", 0);
     $("#left_team #bomb_defuse #kit_bar").css("opacity", 0);
     $("#right_team #bomb_defuse #icon").css("opacity", 0);
     $("#right_team #bomb_defuse #kit_bar").css("opacity", 0);
   } else if (teams.right.side == "t") {
-    $("#timers #bomb_bar").css("opacity", 0);
-    $("#timers #defuse_bar").css("opacity", 0);
+    $("#timers #right_bomb_bar").css("opacity", 0);
+    $("#timers #right_bomb_holder").css("opacity", 0);
+    $("#timers #right_defuse_holder").css("opacity", 0);
+    $("#timers #right_kit_logo").css("opacity", 0);
+    $("#timers #right_nokit_logo").css("opacity", 0);
+    $("#timers #right_defuse_bar").css("opacity", 0);
+    $("#timers #right_bomb_logo").css("opacity", 0);
+    $("#timers #right_bomb_timer_pole").css("opacity", 0);
     $("#right_team #bomb_defuse #icon").css("opacity", 0);
     $("#right_team #bomb_defuse #kit_bar").css("opacity", 0);
     $("#left_team #bomb_defuse #icon").css("opacity", 0);
@@ -1563,16 +1625,16 @@ function printPlayerData(players) {
 }
 
 function updateADR(players) {
-  if(round_start){
-    for(player of players) {
+  if (round_start) {
+    for (player of players) {
       name = player.name
-      if(!player_damage[name]) {
+      if (!player_damage[name]) {
         player_damage[name] = {};
         player_damage[name][round_now] = 0;
       }
       player_damage[name][round_now] = player.state.round_totaldmg;
       let total_damage = 0
-      for(damage of Object.values(player_damage[name])) {
+      for (damage of Object.values(player_damage[name])) {
         total_damage += damage
       }
       player_adr[name] = total_damage / round_now
