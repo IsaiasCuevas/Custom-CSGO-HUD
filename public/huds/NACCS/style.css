@@ -1,16 +1,61 @@
 @import url("https://fonts.googleapis.com/css?family=Manjari&display=swap");
 
+
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #fafafa;
   background-color: rgba(0, 0, 0, 0);
 }
 
+#stats{
+  width: 1070px;
+  height: 540px;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--main-panel-color);
+  opacity: 0;
+}
+#stats #sleft_team{
+  position: relative;
+  float: left;
+  width: 475px;
+  height: 70px;
+}
+
+#stats #sright_team{
+  position: relative;
+  float: right;
+  width: 475px;
+  height: 70px;
+  text-align: right;
+}
+#sleft_team{
+  display: grid;
+  grid-template-rows: 40px 100px 100px 100px 100px 100px;
+}
+#sright_team{
+  display: grid;
+  grid-template-rows: 40px 100px 100px 100px 100px 100px;
+}
+
+#lp1,#lp2,#lp3,#lp4,#lp5{
+  color: purple;
+  border: 1px solid black;
+}
+#rp1,#rp2,#rp3,#rp4,#rp5{
+  color: red;
+  border: 1px solid black;
+}
+
+
+
 #top_panel {
-  width: 1300px;
+  width: 1070px;
   height: 80px;
   position: fixed;
   top: 0px;
@@ -22,14 +67,14 @@ body {
 #left_team {
   position: relative;
   float: left;
-  width: 590px;
+  width: 475px;
   height: 70px;
 }
 
 #right_team {
   position: relative;
   float: right;
-  width: 590px;
+  width: 475px;
   height: 70px;
 }
 
@@ -37,7 +82,7 @@ body {
   position: relative;
   width: 310px;
   height: 70px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 90px;
@@ -118,40 +163,58 @@ body {
 }
 
 #best_of {
-  position: relative;
-  width: 30px;
-  height: 80px;
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  top: 75px;
+  width: 64px;
+  height: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+#best_of_text{
+  position: absolute;
+  color: white;
+  text-align: center;
+  width: 110px;
+  top: 80px;
+  background: var(--sub-panel-color);
+  font-weight: bold;
+  height: 15px;
+  padding: 5px;
 }
 
 #left_team #best_of {
-  float: left;
+  background: var(--sub-panel-color);
+  right: 0px;
 }
 
 #right_team #best_of {
-  float: right;
+  left: 0px;
+  background: var(--sub-panel-color);
 }
 
 #score {
   position: relative;                   
-  width: 120px;
+  width: 85px;
   height: 80px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 90px;
-  font-size: 55px;
+  font-size: 40px;
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0.507);
 }
 
 #left_team #score {
   float: left;
-  color: var(--dev-purple);
+  color: white;
 }
 
 #right_team #score {
   float: right;
-  color: var(--dev-purple);
+  color: white;
 }
 
 .bar {
@@ -167,38 +230,38 @@ body {
 .block3,
 .block4,
 .block5 {
-  width: 10px;
-  height: 10px;
-  background-color: var(--white-dull);
-  opacity: 0;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: #8b8b8b;
 }
 
 .block1 {
-  position: absolute;
+
   left: 10px;
   top: 20px;
 }
 
 .block2 {
-  position: absolute;
+
   left: 10px;
   top: 35px;
 }
 
 .block3 {
-  position: absolute;
+ 
   left: 10px;
   top: 50px;
 }
 
 .block4 {
-  position: absolute;
+  
   left: 10px;
   top: 27.5px;
 }
 
 .block5 {
-  position: absolute;
+  
   left: 10px;
   top: 42.5px;
 }
@@ -214,8 +277,10 @@ body {
 #center_section {
   position: relative;
   float: left;
-  width: 120;
-  height: 100px;
+  width: 120px;
+  height: 80px;
+  background: white;
+
 }
 
 #round_timer {
@@ -232,11 +297,11 @@ body {
   position: relative;
   width: 120px;
   height: 70px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 55px;
-  font-size: 40px;
+  line-height: 10px;
+  font-size: 30px;
   font-weight: bold;
   color: var(--dev-purple);
 
@@ -251,12 +316,14 @@ body {
   float: left;
   width: 120px;
   height: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 24px;
+  line-height: 130px;
   font-size: 16px;
   font-weight: normal;
+  color: black;
+  font-weight: bold;
 }
 
 #alert {
@@ -289,7 +356,7 @@ body {
   position: relative;
   width: 355px;
   height: 40px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 44px;
@@ -393,7 +460,7 @@ body {
 
 #right_bomb_holder{
   background: var(--sub-panel-color);
-  left: 131%;
+  left: 95%;
   height: 45px;
   position: relative;
   width: 391px;
@@ -403,22 +470,21 @@ body {
 
 #left_bomb_holder{
   background: var(--sub-panel-color);
-  left: -153%;
+  left: -117.25%;
   height: 45px;
   position: relative;
   width: 391px;
   opacity: 0;
   margin-top: -45px;
 }
-
 #right_bomb_bar {
-  width: 255px;
+  width: 250px;
   height: 10px;
   position: relative;
   background-color: var(--color-bomb);
   opacity: 0;
   margin-top: -25px;
-  left: 150%;
+  left: 125%;
 
 }
 
@@ -429,7 +495,7 @@ body {
   background-color: var(--color-bomb);
   opacity: 0;
   margin-top: -15px;
-  left: -145%;
+  left: -113%;
 }
 
 #right_bomb_logo{
@@ -437,7 +503,7 @@ body {
   height: auto;
   position: relative;
   opacity: 0;
-  left: 120%;
+  left: 90%;
   z-index: 1;
 }
 
@@ -446,13 +512,13 @@ body {
   height: auto;
   position: relative;
   opacity: 0;
-  left: -50%;
+  left: -15%;
   z-index: 1;
 }
 
 #right_bomb_timer_pole{
   position: absolute;
-  left: 130%;
+  left: 95%;
   margin-top: 0px;
   width: 5px;
   height: 45px;
@@ -462,7 +528,7 @@ body {
 }
 #left_bomb_timer_pole{
   position: absolute;
-  left: -31%;
+  left: 4%;
   margin-top: 0px;
   width: 5px;
   height: 45px;
@@ -473,22 +539,23 @@ body {
 
 #left_defuse_holder{
   background: var(--sub-panel-color);
-  left: -153%;
+  left: -117.25%;
   height: 45px;
   position: relative;
   width: 391px;
   opacity: 0;
-  margin-top: -40px;
+  margin-top: -45px;
 }
 
 #right_defuse_holder{
   background: var(--sub-panel-color);
-  left: 131%;
+  left: 95%;
   height: 45px;
   position: relative;
   width: 391px;
   opacity: 0;
-  margin-top: -30px;
+  margin-top: -25px;
+  border-right: 1px solid black;
 }
 
 #left_defuse_bar {
@@ -497,7 +564,7 @@ body {
   position: relative;
   background-color: var(--color-defuse);
   opacity: 0;
-  left: -110%;
+  left: -80%;
   margin-top: -10px;
 
 }
@@ -508,7 +575,7 @@ body {
   position: relative;
   background-color: var(--color-defuse);
   opacity: 0;
-  left: 175%;
+  left: 145%;
   margin-top: -25px;
 }
 
@@ -517,17 +584,18 @@ body {
   height: auto;
   position: relative;
   opacity: 0;
-  left: 95%;
+  left: 65%;
   margin-bottom: 5px;
   z-index: 1;
 }
 
 #left_kit_logo{
-  width: 45px;
+  width: 35px;
   height: auto;
   position: relative;
   opacity: 0;
-  left: -85%;
+  left: -135%;
+  margin-bottom: 5px;
   z-index: 1;
 }
 
@@ -536,7 +604,7 @@ body {
   height: auto;
   position: relative;
   opacity: 0;
-  left: -195%;
+  left: -165%;
   margin-bottom: 5px;
   z-index: 1;
 }
@@ -545,7 +613,7 @@ body {
   height: auto;
   position: relative;
   opacity: 0;
-  left: 75%;
+  left: 65%;
   margin-bottom: 5px;
   z-index: 1;
 }
@@ -554,7 +622,7 @@ body {
   position: fixed;
   width: 310px;
   height: 40px;
-  top: 100px;
+  top: 150px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -593,12 +661,12 @@ body {
   float: left;
   width: 300px;
   height: 40px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 46px;
   font-size: 18px;
-  font-weight: normal;
+  font-weight: bold;
   color: var(--dev-purple);
 }
 
@@ -606,7 +674,7 @@ body {
   width: 620px;
   height: 190px;
   position: fixed;
-  bottom: 0px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -628,6 +696,28 @@ body {
   height: 90px;
   position: relative;
   left: 140px;
+}
+
+#obs_player_info{
+  width: 340px;
+  height: 20px;
+  top: 70px;
+  position: absolute;
+  left: 140px;
+  background: rgba(0, 0, 0, 0.432);
+  text-align: center;
+}
+#spacer{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#year{
+  font-size: 15px;
+}
+
+#major{
+  font-size: 15px;
 }
 
 #obs_lane2 {
@@ -666,11 +756,11 @@ body {
   height: 32px;
   position: relative;
   left: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 42px;
-  font-size: 28px;
+  line-height: 40px;
+  font-size: 20px;
   font-weight: bold;
   text-overflow: ellipsis;
   overflow: visible;
@@ -683,7 +773,7 @@ body {
   height: 18px;
   position: relative;
   left: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 18px;
@@ -713,12 +803,12 @@ body {
 
 #obs_lane3 {
   width: 100%;
-  height: 50px;
+  height: 30px;
 }
 
 #obs_lane3_left_pole {
   width: 5px;
-  height: 50px;
+  height: 40px;
   position: absolute;
   left: -5px;
   background-color: var(--dev-purple);
@@ -726,7 +816,7 @@ body {
 
 #obs_left_section {
   width: 140px;
-  height: 50px;
+  height: 40px;
   position: absolute;
   left: 0px;
   background-color: var(--main-panel-color);
@@ -734,67 +824,67 @@ body {
 
 #obs_health_section {
   width: 70px;
-  height: 50px;
+  height: 40px;
   position: absolute;
   left: 0px;
 }
 
 #obs_health_img {
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   position: relative;
-  left: 4px;
-  top: 10px;
+  left: 0px;
+  top: 13px;
 }
 
 #obs_health_text {
   width: 35px;
   height: 30px;
   position: relative;
-  left: 34px;
-  top: -20px;
-  font-family: Arial, Helvetica, sans-serif;
+  left: 20px;
+  top: -13px;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: normal;
   color: var(--white-full);
 }
 
 #obs_armor_section {
   width: 70px;
-  height: 50px;
+  height: 40px;
   position: absolute;
   left: 70px;
 }
 
 #obs_armor_img {
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   position: relative;
-  left: 3px;
-  top: 10px;
+  left: 0px;
+  top: 13px;
 }
 
 #obs_armor_text {
   width: 35px;
   height: 30px;
   position: relative;
-  left: 32px;
-  top: -20px;
-  font-family: Arial, Helvetica, sans-serif;
+  left: 20px;
+  top: -13px;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: normal;
   color: var(--white-full);
 }
 
 #obs_middle_section {
   width: 340px;
-  height: 50px;
+  height: 40px;
   position: absolute;
   left: 140px;
   background-color: var(--sub-panel-color);
@@ -812,8 +902,8 @@ body {
   width: 50px;
   height: 30px;
   position: absolute;
-  left: 55px;
-  top: 10px;
+  left: 250px;
+  top: -40px;
 }
 
 #obs_skull {
@@ -830,7 +920,7 @@ body {
   position: absolute;
   top: 0px;
   left: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 36px;
@@ -862,19 +952,28 @@ body {
   left: 192px;
   top: 0px;
 }
+#obs_adr {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 252px;
+  top: 0px;
+}
 
 #obs_kills_k,
 #obs_assists_a,
-#obs_deaths_d {
+#obs_deaths_d,
+#obs_adr_adr {
   width: 22px;
   height: 30px;
   position: relative;
-  top: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: right;
+  top: -8px;
+  left: 16px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
   vertical-align: text-bottom;
   line-height: 36px;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: bold;
   color: var(--dev-purple);
  
@@ -882,20 +981,20 @@ body {
 
 #obs_kills_text,
 #obs_assists_text,
-#obs_deaths_text {
+#obs_deaths_text,
+#obs_adr_text{
   width: 28px;
   height: 30px;
   position: relative;
-  left: 24px;
+  left: 15px;
   top: -20px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: left;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
   vertical-align: text-bottom;
   line-height: 36px;
   font-size: 20px;
   font-weight: normal;
   color: var(--white-full);
-  margin-left: 4px;
   text-shadow: 1px 1px lightgray;
 }
 
@@ -903,12 +1002,12 @@ body {
   width: 100px;
   height: 50px;
   position: absolute;
-  right: 0px;
+  left: 10px;
   top: 0px;
 }
 
 #obs_nade1 {
-  width: 25px;
+  width: 20px;
   height: 30px;
   position: absolute;
   left: 75px;
@@ -916,7 +1015,7 @@ body {
 }
 
 #obs_nade2 {
-  width: 25px;
+  width: 20px;
   height: 30px;
   position: absolute;
   left: 50px;
@@ -924,7 +1023,7 @@ body {
 }
 
 #obs_nade3 {
-  width: 25px;
+  width: 20px;
   height: 30px;
   position: absolute;
   left: 25px;
@@ -932,7 +1031,7 @@ body {
 }
 
 #obs_nade4 {
-  width: 25px;
+  width: 20px;
   height: 30px;
   position: absolute;
   left: 0px;
@@ -940,18 +1039,18 @@ body {
 }
 
 #obs_right_section {
-  width: 140px;
-  height: 50px;
+  width: 180px;
+  height: 40px;
   position: absolute;
   left: 480px;
   background-color: var(--main-panel-color);
 }
 
 #obs_bullets_section {
-  width: 30px;
-  height: 30px;
+  width: 100px;
+  height: 25px;
   position: absolute;
-  left: 18px;
+  left: 110px;
   top: 10px;
 }
 
@@ -959,8 +1058,8 @@ body {
   width: 100px;
   height: 30px;
   position: absolute;
-  left: 35px;
-  top: 10px;
+  left: 110px;
+  top: 5px;
 }
 
 #obs_clip {
@@ -968,8 +1067,7 @@ body {
   height: 30px;
   position: absolute;
   left: 15px;
-
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: right;
   vertical-align: text-bottom;
   line-height: 36px;
@@ -983,21 +1081,20 @@ body {
   height: 30px;
   position: absolute;
   left: 48px;
-
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 10px;
   font-weight: normal;
   color: var(--dev-purple);
 }
 
 #obs_lane3_right_pole {
   width: 5px;
-  height: 50px;
+  height: 40px;
   position: absolute;
-  left: 620px;
+  left: 660px;
   background-color: var(--dev-purple);
 }
 
@@ -1018,7 +1115,7 @@ body {
 }
 
 #box_section {
-  width: 370px;
+  width: 350px;
   height: 220px;
   position: relative;
   display: flex;
@@ -1031,12 +1128,12 @@ body {
 }
 
 #players_right > #box_section {
-  left: 220px;
+  left: 240px;
 }
 
 #player_section {
   width: 100%;
-  height: 250px;
+  height: 0px;
   position: relative;
   top: 5px;
 }
@@ -1088,7 +1185,7 @@ body {
   height: 50%;
   left: 10px;
   position: relative;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 48px;
@@ -1109,7 +1206,7 @@ body {
   height: 50%;
   left: 10px;
   position: relative;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 34px;
@@ -1120,7 +1217,7 @@ body {
 
 #players_right > #box_section > #box_top > #box_main {
   right: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 76px;
@@ -1144,7 +1241,7 @@ body {
 }
 
 #box_heading_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 23px;
@@ -1152,10 +1249,11 @@ body {
   font-weight: normal;
   color: var(--white-full);
   position: relative;
+  margin-left:-50px;
 }
 
 #box_heading_subtext {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 23px;
@@ -1164,7 +1262,7 @@ body {
   color: var(--white-full);
   position: relative;
   top: -23px;
-  left: 230px;
+  left: 195px;
 }
 
 .box_grenades {
@@ -1174,7 +1272,7 @@ body {
 }
 
 .box_nade_1 {
-  width: 85px;
+  width: 50px;
   height: 50px;
   position: absolute;
   left: 0px;
@@ -1248,19 +1346,19 @@ body {
 }
 
 #util_nade_1 {
-  height: 50px;
+  height: 40px;
   width: 45px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   position: absolute;
-  top: -4px;
+  top: 2px;
 }
 
 #util_nade_1_count {
-  height: 50px;
+  height: 40px;
   width: 45px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 56px;
@@ -1272,26 +1370,26 @@ body {
 }
 
 .box_nade_2 {
-  width: 85px;
+  width: 50px;
   height: 50px;
   position: absolute;
   left: 95px;
 }
 
 #util_nade_2 {
-  height: 50px;
+  height: 40px;
   width: 45px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   position: absolute;
-  top: -4px;
+  top: 2px;
 }
 
 #util_nade_2_count {
-  height: 50px;
+  height: 40px;
   width: 45px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 56px;
@@ -1303,26 +1401,26 @@ body {
 }
 
 .box_nade_3 {
-  width: 85px;
+  width: 50px;
   height: 50px;
   position: absolute;
   left: 190px;
 }
 
 #util_nade_3 {
-  height: 50px;
+  height: 40px;
   width: 45px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   position: absolute;
-  top: -4px;
+  top: 2px;
 }
 
 #util_nade_3_count {
   height: 50px;
   width: 45px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 56px;
@@ -1334,26 +1432,26 @@ body {
 }
 
 .box_nade_4 {
-  width: 85px;
+  width: 50px;
   height: 50px;
   position: absolute;
-  left: 285px;
+  left: 275px;
 }
 
 #util_nade_4 {
-  height: 50px;
+  height: 40px;
   width: 45px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   position: absolute;
-  top: -4px;
+  top: 2px;
 }
 
 #util_nade_4_count {
   height: 50px;
   width: 45px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 56px;
@@ -1366,7 +1464,7 @@ body {
 
 #box_monetary {
   width: 100%;
-  height: 70px;
+  height: 50px;
   margin-top: 5px;
   background-color: var(--sub-panel-color);
   display: none;
@@ -1374,92 +1472,92 @@ body {
 
 .box_equip_value {
   width: 123px;
-  height: 70px;
+  height: 50px;
   position: absolute;
 }
 
 #players_left .box_equip_value {
-  left: 246px;
+  left: 205px;
 }
 
 #players_right .box_equip_value {
-  right: 246px;
+  right: 205px;
 }
 
 #equip_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 40px;
-  font-size: 16px;
+  line-height: 25px;
+  font-size: 14px;
   font-weight: normal;
   color: var(--white-full);
   position: relative;
 }
 
 #equip_value {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 20px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: normal;
   color: var(--white-full);
   position: relative;
 }
 
 #money_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 40px;
-  font-size: 16px;
+  line-height: 25px;
+  font-size: 14px;
   font-weight: normal;
   color: var(--white-full);
   position: relative;
 }
 
 #money_value {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 20px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: normal;
   color: var(--white-full);
   position: relative;
 }
 
 #loss_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 40px;
-  font-size: 16px;
+  line-height: 25px;
+  font-size: 14px;
   font-weight: normal;
   color: var(--white-full);
   position: relative;
 }
 
 #loss_value {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 20px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: normal;
   color: var(--white-full);
   position: relative;
 }
 
 .box_team_money {
-  width: 123px;
+  width: 100px;
   height: 70px;
   position: absolute;
 }
 
 #players_left .box_team_money {
-  left: 123px;
+  left: 110px;
 }
 
 #players_right .box_team_money {
@@ -1468,16 +1566,16 @@ body {
 
 .loss_bonus {
   width: 123px;
-  height: 70px;
+  height: 50px;
   position: absolute;
 }
 
 #players_left .loss_bonus {
-  left: 0px;
+  left: 50px;
 }
 
 #players_right .loss_bonus {
-  right: 0px;
+  right: 50px;
 }
 
 .loss_boxes {
@@ -1487,16 +1585,16 @@ body {
 }
 
 #players_left .loss_boxes {
-  left: 0px;
+  left: -50px;
 }
 
 #players_right .loss_boxes {
-  right: 0px;
+  right: -50px;
 }
 
 .loss_1 {
   width: 10px;
-  height: 14px;
+  height: 10px;
   top: 10px;
   position: relative;
   background-color: var(--white-dull);
@@ -1504,7 +1602,7 @@ body {
 
 .loss_2 {
   width: 10px;
-  height: 14px;
+  height: 10px;
   top: 8px;
   position: relative;
   background-color: var(--white-dull);
@@ -1512,7 +1610,7 @@ body {
 
 .loss_3 {
   width: 10px;
-  height: 14px;
+  height: 10px;
   top: 6px;
   position: relative;
   background-color: var(--white-dull);
@@ -1520,7 +1618,7 @@ body {
 
 .loss_4 {
   width: 10px;
-  height: 14px;
+  height: 10px;
   top: 4px;
   position: relative;
   background-color: var(--white-dull);
@@ -1546,13 +1644,13 @@ body {
 #player4,
 #player5 {
   width: 100%;
-  height: 50px;
+  height: 60px;
   position: relative;
   margin-bottom: 0px;
 }
 
 .player_main_holder {
-  width: 405px;
+  width: 385px;
   height: 55px;
   position: absolute;
 }
@@ -1562,7 +1660,7 @@ body {
 }
 
 #players_left .player_main_holder {
-  right: 185px;
+  right: 205px;
 }
 
 .player_side_bar {
@@ -1599,18 +1697,18 @@ body {
 }
 
 .player_section_top {
-  width: 320px;
-  height: 22.5px;
+  width: 340px;
+  height: 28px;
   position: absolute;
   background-color: var(--main-panel-color);
 }
 
 #players_left .player_section_top {
-  left: 50px;
+  left: 10px;
 }
 
 #players_right .player_section_top {
-  right: 60px;
+  right: 0px;
 }
 
 .player_health_bar {
@@ -1628,36 +1726,37 @@ body {
 }
 
 .player_health {
-  width: 40px;
-  height: 100%;
+  width: 35px;
+  height: 80%;
   position: absolute;
-  top: 0px;
+  top: 5px
 }
 
 #players_left .player_health {
-  left: 0px;
+  left: 5px;
 }
 
 #players_right .player_health {
-  left: 280px;
+  right: 5px;
 }
 
 #player_health_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   vertical-align: text-bottom;
-  line-height: 25px;
-  font-size: 18px;
-  font-weight: normal;
+  line-height: 22px;
+  font-size: 16px;
+  font-weight: bold;
   text-align: center;
   position: relative;
   color: var(--white-full);
+  background: rgba(0, 0, 0, 0.26);
 }
 
 .player_alias {
   width: 185px;
   height: 100%;
   position: absolute;
-  top: 0px;
+  top: 2px;
 }
 
 #players_left .player_alias {
@@ -1669,7 +1768,7 @@ body {
 }
 
 #player_alias_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   vertical-align: text-bottom;
   line-height: 25px;
   font-size: 18px;
@@ -1697,11 +1796,11 @@ body {
 }
 
 #players_left .player_weapon_primary {
-  left: 210px;
+  left: 235px;
 }
 
 #players_right .player_weapon_primary {
-  left: 15px;
+  left: 5px;
 }
 
 #player_weapon_primary_img {
@@ -1729,19 +1828,19 @@ body {
 }
 
 .player_section_bottom {
-  width: 320px;
+  width: 340px;
   height: 22.5px;
   position: absolute;
-  top: 40%;
+  top: 50%;
   background-color: var(--sub-panel-color);
 }
 
 #players_left .player_section_bottom {
-  left: 50px;
+  left: 10px;
 }
 
 #players_right .player_section_bottom {
-  left: 25px;
+  right: 0px;
 }
 
 .player_armor {
@@ -1756,7 +1855,7 @@ body {
 }
 
 #players_right .player_armor {
-  left: 295px;
+  left: 280px;
 }
 
 #player_armor_image {
@@ -1776,7 +1875,7 @@ body {
 }
 
 #players_right .player_bomb_kit {
-  left: 268px;
+  left: 260px;
 }
 
 #player_bomb_kit_image {
@@ -1799,7 +1898,7 @@ body {
 }
 
 #player_current_money_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   vertical-align: text-bottom;
   line-height: 25px;
   font-size: 16px;
@@ -1831,7 +1930,7 @@ body {
 }
 
 #players_right .player_round_kills {
-  left: 160px;
+  left: 140px;
 }
 
 #player_skull {
@@ -1850,7 +1949,7 @@ body {
 }
 
 #player_round_kills_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   vertical-align: text-bottom;
   line-height: 20px;
   font-size: 16px;
@@ -1877,11 +1976,11 @@ body {
 }
 
 #players_left .player_nades {
-  left: 165px;
+  left: 175px;
 }
 
 #players_right .player_nades {
-  left: 70px;
+  left: 60px;
 }
 
 #player_nade1 {
@@ -1948,11 +2047,11 @@ body {
 }
 
 #players_left .player_weapon_secondary {
-  left: 250px;
+  left: 275px;
 }
 
 #players_right .player_weapon_secondary {
-  left: 15px;
+  left: 5px;
 }
 
 #player_weapon_secondary_img {
@@ -2069,7 +2168,7 @@ body {
 }
 
 #players_right .player_dead {
-  left: 25px;
+  left: 45px;
 }
 
 .player_dead_k {
@@ -2107,7 +2206,7 @@ body {
   width: 32px;
   height: 35px;
   position: relative;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 25px;
@@ -2123,10 +2222,10 @@ body {
   width: 32px;
   height: 35px;
   position: relative;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
-  line-height: 0px;
+  line-height: 5px;
   font-size: 15px;
   font-weight: bold;
   color: var(--white-half);
@@ -2139,11 +2238,11 @@ body {
 }
 
 #players_left .player_spec {
-  left: 365px;
+  left: 345px;
 }
 
 #players_right .player_spec {
-  right: 365px;
+  right: 345px;
 }
 
 #player_spec_bar {
@@ -2162,12 +2261,12 @@ body {
 }
 
 #players_left .player_stats_holder {
-  left: 365px;
+  left: 350px;
   background: radial-gradient(circle at left, var(--main-panel-color), var(--main-panel-color-transparent));
 }
 
 #players_right .player_stats_holder {
-  right: 365px;
+  right: 350px;
   background: radial-gradient(circle at right, var(--main-panel-color), var(--main-panel-color-transparent));
 }
 
@@ -2239,7 +2338,7 @@ body {
   width: 32px;
   height: 30px;
   position: relative;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 35px;
@@ -2254,7 +2353,7 @@ body {
   width: 32px;
   height: 30px;
   position: relative;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   vertical-align: text-bottom;
   line-height: 6px;
@@ -2268,7 +2367,7 @@ body {
   height: 60px;
   position: relative;
   left: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
   line-height: 65px;
@@ -2300,9 +2399,9 @@ body {
 
 .bomb_active {
   background-image: url("/files/img/elements/icon_c4_T.gif");
-  max-height: 40px;
+  max-height: 50px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2312,7 +2411,7 @@ body {
   background-image: url("/files/img/elements/icon_bomb_explosion_T.png");
   max-height: 40px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2322,7 +2421,7 @@ body {
   background-image: url("/files/img/elements/icon_defuse_CT.png");
   max-height: 40px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2332,7 +2431,7 @@ body {
   background-image: url("/files/img/elements/icon_pause_default.png");
   max-height: 40px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2342,7 +2441,7 @@ body {
   background-image: url("/files/img/elements/icon_pause_T.png");
   max-height: 40px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2352,7 +2451,7 @@ body {
   background-image: url("/files/img/elements/icon_pause_CT.png");
   max-height: 40px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2362,7 +2461,7 @@ body {
   background-image: url("/files/img/elements/icon_skull_T.png");
   max-height: 40px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2372,7 +2471,7 @@ body {
   background-image: url("/files/img/elements/icon_skull_CT.png");
   max-height: 40px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2382,7 +2481,7 @@ body {
   background-image: url("/files/img/elements/icon_timer_CT.png");
   max-height: 40px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2392,7 +2491,7 @@ body {
   background-image: url("/files/img/elements/icon_hourglass_default.png");
   max-height: 40px;
   width: auto;
-  top: 8px;
+  top: -20px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -2426,7 +2525,7 @@ body {
 }
 
 .health_default {
-  background-image: url("/files/img/elements/icon_health_default.png");
+  background-image: url("/files/img/elements/health.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2435,7 +2534,7 @@ body {
 }
 
 .health_CT {
-  background-image: url("/files/img/elements/icon_health_CT.png");
+  background-image: url("/files/img/elements/health.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2444,7 +2543,7 @@ body {
 }
 
 .health_T {
-  background-image: url("/files/img/elements/icon_health_T.png");
+  background-image: url("/files/img/elements/health.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2453,7 +2552,7 @@ body {
 }
 
 .health_full_default {
-  background-image: url("/files/img/elements/icon_health_full_default.png");
+  background-image: url("/files/img/elements/health.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2462,7 +2561,7 @@ body {
 }
 
 .health_full_CT {
-  background-image: url("/files/img/elements/icon_health_full_CT.png");
+  background-image: url("/files/img/elements/health.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2471,7 +2570,7 @@ body {
 }
 
 .health_full_T {
-  background-image: url("/files/img/elements/icon_health_full_T.png");
+  background-image: url("/files/img/elements/health.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2480,7 +2579,7 @@ body {
 }
 
 .armor_none_default {
-  background-image: url("/files/img/elements/icon_armor_none_default.png");
+  background-image: url("/files/img/elements/armor.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2489,7 +2588,7 @@ body {
 }
 
 .armor_none_CT {
-  background-image: url("/files/img/elements/icon_armor_none_CT.png");
+  background-image: url("/files/img/elements/armor.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2498,7 +2597,7 @@ body {
 }
 
 .armor_none_T {
-  background-image: url("/files/img/elements/icon_armor_none_T.png");
+  background-image: url("/files/img/elements/armor.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2516,7 +2615,7 @@ body {
 }
 
 .armor_helm_CT {
-  background-image: url("/files/img/elements/icon_armor_helmet_CT.png");
+  background-image: url("/files/img/elements/armor_helm.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2525,7 +2624,7 @@ body {
 }
 
 .armor_helm_T {
-  background-image: url("/files/img/elements/icon_armor_helmet_T.png");
+  background-image: url("/files/img/elements/armor_helm.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2534,7 +2633,7 @@ body {
 }
 
 .armor_kev_default {
-  background-image: url("/files/img/elements/icon_armor_full_default.png");
+  background-image: url("/files/img/elements/armor.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2543,7 +2642,7 @@ body {
 }
 
 .armor_kev_CT {
-  background-image: url("/files/img/elements/icon_armor_full_CT.png");
+  background-image: url("/files/img/elements/armor.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2552,7 +2651,7 @@ body {
 }
 
 .armor_kev_T {
-  background-image: url("/files/img/elements/icon_armor_full_T.png");
+  background-image: url("/files/img/elements/armor.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2561,7 +2660,7 @@ body {
 }
 
 .armor_half_default {
-  background-image: url("/files/img/elements/icon_armor_half_default.png");
+  background-image: url("/files/img/elements/armor.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2570,7 +2669,7 @@ body {
 }
 
 .armor_half_CT {
-  background-image: url("/files/img/elements/icon_armor_half_CT.png");
+  background-image: url("/files/img/armor.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2579,7 +2678,7 @@ body {
 }
 
 .armor_half_T {
-  background-image: url("/files/img/elements/icon_armor_half_T.png");
+  background-image: url("/files/img/elements/armor.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2588,7 +2687,7 @@ body {
 }
 
 .armor_half_helm_default {
-  background-image: url("/files/img/elements/icon_armor_half_helmet_default.png");
+  background-image: url("/files/img/elements/armor_helmet.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2597,7 +2696,7 @@ body {
 }
 
 .armor_half_helm_CT {
-  background-image: url("/files/img/elements/icon_armor_half_helmet_CT.png");
+  background-image: url("/files/img/elements/armor_helmet.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2606,7 +2705,7 @@ body {
 }
 
 .armor_half_helm_T {
-  background-image: url("/files/img/elements/icon_armor_half_helmet_T.png");
+  background-image: url("/files/img/elements/armor_helmet.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2615,7 +2714,7 @@ body {
 }
 
 .bullets_default {
-  background-image: url("/files/img/elements/icon_bullets_default.png");
+  background-image: url("/files/img/elements/bullets.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
@@ -2624,21 +2723,23 @@ body {
 }
 
 .bullets_CT {
-  background-image: url("/files/img/elements/icon_bullets_CT.png");
+  background-image: url("/files/img/elements/bullets_ct.svg");
   max-height: 30px;
   max-width: 30px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+
 }
 
 .bullets_T {
-  background-image: url("/files/img/elements/icon_bullets_T.png");
-  max-height: 30px;
+  background-image: url("/files/img/elements/bullets_t.svg");
+  max-height: 20px;
   max-width: 30px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  fill: var(--color-t);
 }
 
 .nade_decoy {
@@ -2809,16 +2910,241 @@ body {
   background-position: center;
 }
 
+#player_stats_popup{
+  width: 1248px;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--popup-panel-color);
+}
+
+#players_header{
+  top: -33%;
+  left: 0%;
+  height: 50px;
+  width: 400px;
+  position: absolute;
+  display:inline-block;
+  border-bottom: 1px solid black;
+  opacity: 0; 
+}
+
+#left_header_k{
+  left: 52%;
+  position: absolute;
+  display:inline-block;
+  font-size: 20px;
+}
+#left_header_a{
+  left: 67%;
+  position: absolute;
+  display:inline-block;
+  font-size: 20px;
+}
+#left_header_d{
+  left: 82%;
+  position: absolute;
+  display:inline-block;
+  font-size: 20px;
+}
+
+#player1_stats{
+  top: 15%;
+  left: 0%;
+  height: 135px;
+  width: 400px;
+  position: absolute;
+  display:inline-block;
+  border-bottom: 1px solid black;
+  opacity: 0; 
+}
+#player2_stats{
+  top: 30%;
+  left: 0%;
+  height: 150px;
+  width: 400px;
+  position: absolute;
+  display:inline-block;
+  border-bottom: 1px solid black;
+  opacity: 0;
+}
+#player3_stats{
+  top: 45%;
+  left: 0%;
+  height: 150px;
+  width: 400px;
+  position: absolute;
+  display:inline-block;
+  border-bottom: 1px solid black;
+  opacity: 0;
+}
+#player4_stats{
+  top: 60%;
+  left: 0%;
+  height: 150px;
+  width: 400px;
+  position: absolute;
+  display:inline-block;
+  border-bottom: 1px solid black;
+  opacity: 0;
+}
+#player5_stats{
+  top: 75%;
+  left: 0%;
+  height: 150px;
+  width: 400px;
+  position: absolute;
+  display:inline-block;
+  border-bottom: 1px solid black;
+  opacity: 0;
+}
+#player1_k{
+  top:25%;
+  left: 50%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;
+}
+#player1_a{
+  top:25%;
+  left: 65%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;
+}
+#player1_d{
+  top:25%;
+  left: 80%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;
+}
+#player1_adr{
+  display:inline-block;
+  color: black;
+  position: absolute; 
+  bottom: 0px;
+  left: 25%;
+}
+#player2_k{  
+  top:25%;
+  left: 50%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;
+}
+#player2_a{
+  top:25%;
+  left: 65%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;
+}
+#player2_d{
+  top:25%;
+  left: 80%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;
+}
+#player2_adr{
+  display:inline-block;
+  color: black;
+  position: absolute;
+  bottom: 15px;
+  left: 25%;
+}
+#player3_k{
+  top:25%;
+  left: 50%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;
+}
+#player3_a{
+  top:25%;
+  left: 65%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;
+}
+#player3_d{
+  top:25%;
+  left: 80%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;
+}
+#player3_adr{
+  display:inline-block;
+color: black;
+position: absolute;
+bottom: 0px;
+left: 25%;
+}
+#player4_k{  
+  top:25%;
+  left: 50%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;}
+#player4_a{ 
+   top:25%;
+  left: 65%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;}
+#player4_d{  
+  top:25%;
+  left: 80%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;}
+#player4_adr{
+  display:inline-block;
+  color: black;
+  position: absolute;
+  bottom: 0px;
+  left: 25%;
+}
+#player5_k{  
+  top:25%;
+  left:50%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;}
+#player5_a{  
+  top:25%;
+  left: 65%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;}
+#player5_d{  
+  top:25%;
+  left: 80%;
+  display:inline-block;
+  position: absolute;
+  font-size: 24px;}
+#player5_adr{
+display:inline-block;
+color: black;
+position: absolute;
+bottom: 0px;
+left: 25%;
+}
+
 :root {
   --main-panel-color: rgba(12, 15, 18, 0.75);
   --main-panel-color-transparent: rgba(12, 15, 18, 0.05);
   --sub-panel-color: rgba(12, 15, 18, 0.6);
+  --popup-panel-color: rgba(12, 15, 18, 0.24);
   --white-dull: rgba(250, 250, 250, 0.25);
   --white-full: rgba(250, 250, 250, 1);
   --white-half: rgba(250, 250, 250, 0.5);
   --color-moneys: #a7d32e;
   --dev-purple: rgba(200, 0, 255, 1);
-  --color-t: #c19511;
+  --color-t: #cb8802;
   --color-ct: #5788a8;
   --color-new-t: #f0c941;
   --color-new-ct: #5ab8f4;

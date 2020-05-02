@@ -198,6 +198,8 @@ $(document).ready(function () {
 
         slotted[slot].name = players_data[steamid] ? players_data[steamid].displayed_name || name : name;
         slotted[slot].real_name = players_data[steamid] ? players_data[steamid].real_name || name : name;
+        slotted[slot].year = players_data[steamid] ? players_data[steamid].year || name : name;
+        slotted[slot].major = players_data[steamid] ? players_data[steamid].major || name : name;
         if (players_data[steamid] && players_data[steamid].country_code) {
           slotted[slot].country_code = players_data[steamid].country_code;
         }

@@ -4,6 +4,7 @@ const COLOR_NEW_CT = "rgba(90, 184, 244, 1.0)";
 const COLOR_NEW_T = "rgba(240, 201, 65, 1.0)";
 const COLOR_RED = "rgba(242, 34, 34, 1.0)";
 const COLOR_MAIN_PANEL = "rgba(12, 15, 18, 0.75)";
+const COLOR_BLACK = "rgb(0,0,0)";
 const COLOR_SUB_PANEL = "rgba(12, 15, 18, 0.6)";
 const COLOR_GRAY = "rgba(191, 191, 191, 1.0)";
 const COLOR_WHITE = "rgba(250, 250, 250, 1.0)";
@@ -66,7 +67,7 @@ function updatePage(data) {
   updateLeague();
   updateRoundNow(round, map);
   updateRoundState(phase, round, map, previously, bomb, players);
-  updateObserved(observed);
+  updateObserved(observed, players);
   updatePlayers(players, observed, phase, previously);
   updateTeamValues(teams.left, teams.right);
   countNades(teams.left, teams.right);
@@ -75,15 +76,28 @@ function updatePage(data) {
 }
 
 function setupBestOf(matchup, match) {
+  if (matchup && matchup.toLowerCase() == "none") {
+    $("#left_team #best_of").css("display", "none");
+    $("#right_team #best_of").css("display", "none");
+    $("#best_of_text").css("display", "none");
+  }
   if (matchup && matchup.toLowerCase() != "none") {
     if (matchup == "bo1") {
-      $("#left_team .block2")
+      $("#best_of_text").text("Best of 1");
+      $("#left_team .block3")
         .css("opacity", "1")
         .css("background-color", match.team_1.map_score >= 1 ? COLOR_WHITE : "");
-      $("#right_team .block2")
+      $("#right_team .block3")
         .css("opacity", "1")
         .css("background-color", match.team_2.map_score >= 1 ? COLOR_WHITE : "");
     } else if (matchup == "bo3") {
+      $("#best_of_text").text("Best of 3");
+      $("#left_team .block1").css("display", "none")
+      $("#left_team .block2").css("display", "none")
+      $("#left_team .block3").css("display", "none")
+      $("#right_team .block1").css("display", "none")
+      $("#right_team .block2").css("display", "none")
+      $("#right_team .block3").css("display", "none")
       $("#left_team .block4")
         .css("opacity", "1")
         .css("background-color", match.team_1.map_score >= 1 ? COLOR_WHITE : "");
@@ -97,22 +111,27 @@ function setupBestOf(matchup, match) {
         .css("opacity", "1")
         .css("background-color", match.team_2.map_score >= 2 ? COLOR_WHITE : "");
     } else if (matchup == "bo5") {
-      $("#left_team .block1")
-        .css("opacity", "1")
-        .css("background-color", match.team_1.map_score >= 1 ? COLOR_WHITE : "");
+      $("#best_of_text").text("Best of 5");
+      $("#left_team .block1").css("display", "none")
+      $("#left_team .block5").css("display", "none")
+      $("#right_team .block1").css("display", "none")
+      $("#right_team .block5").css("display", "none")
       $("#left_team .block2")
         .css("opacity", "1")
-        .css("background-color", match.team_1.map_score >= 2 ? COLOR_WHITE : "");
+        .css("background-color", match.team_1.map_score >= 1 ? COLOR_WHITE : "");
       $("#left_team .block3")
         .css("opacity", "1")
-        .css("background-color", match.team_1.map_score >= 3 ? COLOR_WHITE : "");
-      $("#right_team .block1")
+        .css("background-color", match.team_1.map_score >= 2 ? COLOR_WHITE : "");
+      $("#left_team .block4")
         .css("opacity", "1")
-        .css("background-color", match.team_2.map_score >= 1 ? COLOR_WHITE : "");
+        .css("background-color", match.team_1.map_score >= 3 ? COLOR_WHITE : "");
       $("#right_team .block2")
         .css("opacity", "1")
-        .css("background-color", match.team_2.map_score >= 2 ? COLOR_WHITE : "");
+        .css("background-color", match.team_2.map_score >= 1 ? COLOR_WHITE : "");
       $("#right_team .block3")
+        .css("opacity", "1")
+        .css("background-color", match.team_2.map_score >= 2 ? COLOR_WHITE : "");
+      $("#right_team .block4")
         .css("opacity", "1")
         .css("background-color", match.team_2.map_score >= 3 ? COLOR_WHITE : "");
     }
@@ -132,10 +151,10 @@ function updateTopPanel() {
   //#region Team Score
   $("#left_team #score")
     .text(teams.left.score)
-    .css("color", teams.left.side == "ct" ? COLOR_NEW_CT : COLOR_NEW_T);
+    .css("background", teams.left.side == "ct" ? COLOR_NEW_CT : COLOR_NEW_T);
   $("#right_team #score")
     .text(teams.right.score)
-    .css("color", teams.right.side == "ct" ? COLOR_NEW_CT : COLOR_NEW_T);
+    .css("background", teams.right.side == "ct" ? COLOR_NEW_CT : COLOR_NEW_T);
   //#endregion
 
   //#region Poles
@@ -217,13 +236,13 @@ function updateRoundState(phase, round, map, previously, bomb, players) {
       updateStateDefuse(phase, bomb, players);
       break;
     case "paused":
-      updateStatePaused(phase, "paused", previously);
+      updateStatePaused(phase, "paused", previously, players);
       break;
     case "timeout_t":
-      updateStatePaused(phase, "timeout_t", previously);
+      updateStatePaused(phase, "timeout_t", previously, players);
       break;
     case "timeout_ct":
-      updateStatePaused(phase, "timeout_ct", previously);
+      updateStatePaused(phase, "timeout_ct", previously, players);
       break;
   }
 }
@@ -249,7 +268,7 @@ function updateStateFreezetime(phase, previously) {
     $("#players_right #box_utility").slideDown(500);
     $("#players_left #box_monetary").slideDown(500);
     $("#players_right #box_monetary").slideDown(500);
-    $("#round_timer_text").css("color", COLOR_GRAY);
+    $("#round_timer_text").css("color", COLOR_BLACK);
     if (previously.hasOwnProperty("round")) {
       if (previously.round.hasOwnProperty("win_team")) {
         if (previously.round.win_team == "CT") {
@@ -277,6 +296,8 @@ function updateStateFreezetime(phase, previously) {
           .css("opacity", 0)
           .removeClass();
       });
+
+      hideStatsPopup();
     } else if (checkPrev(previously, "timeout_t") || checkPrev(previously, "timeout_ct")) {
       $("#alert_middle").removeClass();
       animateElement("#alert_middle", "fadeOutDown", function () {
@@ -302,8 +323,9 @@ function updateStateFreezetime(phase, previously) {
 function updateStateOver(phase, round, players, previously) {
   if (phase) {
     updateADR(players);
+    updateStatsPopup(players);
     round_start = false;
-    $("#round_timer_text").css("color", COLOR_GRAY);
+    $("#round_timer_text").css("color", COLOR_BLACK);
     //#region Which Team Won
     if (round.win_team == "CT") {
       if (teams.left.side == "ct") {
@@ -400,6 +422,7 @@ function updateStateOver(phase, round, players, previously) {
 function updateStatePlanted(phase, round, players, previously) {
   if (phase) {
     updateADR(players);
+    updateStatsPopup(players);
     if (round.bomb == "planted") {
       if (checkPrev(previously, "live")) {
         $("#players_left #box_utility").slideDown(500);
@@ -461,6 +484,7 @@ function updateStatePlanted(phase, round, players, previously) {
 function updateStateDefuse(phase, bomb, players) {
   if (phase) {
     updateADR(players);
+    updateStatsPopup(players);
     if (phase.phase == "defuse") {
       let side = teams.left.side == "t" ? "#left_team" : "#right_team";
       if (!isDefusing) {
@@ -499,7 +523,7 @@ function updateStateDefuse(phase, bomb, players) {
               $("#timers #right_kit_logo").css("opacity", 1);
             }
             else {
-              $("#timers #right_nokit_logo").css("opacity", .5);
+              $("#timers #right_nokit_logo").css("opacity", 1);
             }
             $("#timers #right_defuse_bar").css(defuse_timer_css);
             $("#timers #right_defuse_holder").css("opacity", 1);
@@ -510,7 +534,7 @@ function updateStateDefuse(phase, bomb, players) {
               $("#timers #left_kit_logo").css("opacity", 1);
             }
             else {
-              $("#timers #left_nokit_logo").css("opacity", .5);
+              $("#timers #left_nokit_logo").css("opacity", 1);
             }
             $("#timers #left_defuse_bar").css(defuse_timer_css);
             $("#timers #left_defuse_holder").css("opacity", 1);
@@ -527,6 +551,7 @@ function updateStateDefuse(phase, bomb, players) {
 function updateStateLive(phase, bomb, players, previously) {
   if (phase) {
     updateADR(players);
+    updateStatsPopup(players);
     removeRoundTimeGraphics();
     forceRemoveAlerts();
     resetBomb();
@@ -545,7 +570,7 @@ function updateStateLive(phase, bomb, players, previously) {
         .css("animation-duration", "2s")
         .css("animation-iteration-count", "infinite");
     }
-    $("#round_timer_text").css("color", phase.phase_ends_in <= 10 ? COLOR_RED : COLOR_WHITE);
+    $("#round_timer_text").css("color", phase.phase_ends_in <= 10 ? COLOR_RED : COLOR_BLACK);
     if (phase.phase_ends_in) {
       var clock_time = Math.abs(Math.ceil(phase.phase_ends_in));
       var count_minute = Math.floor(clock_time / 60);
@@ -571,26 +596,31 @@ function updateStateLive(phase, bomb, players, previously) {
   }
 }
 
-function updateStatePaused(phase, type, previously) {
+function updateStatePaused(phase, type, previously, player) {
   removeRoundTimeGraphics();
   resetBomb();
   $("#players_left #box_utility").slideDown(500);
   $("#players_right #box_utility").slideDown(500);
   $("#alert_middle").removeClass();
   if (type == "paused") {
-    if (checkPrev(previously, "freezetime") || checkPrev(previously, "live") || checkPrev(previously, "defuse") || checkPrev(previously, "bomb"))
+    if (checkPrev(previously, "freezetime") || checkPrev(previously, "live") || checkPrev(previously, "defuse") || checkPrev(previously, "bomb")) {
       animateRoundTimer("pause_active", false);
+      //showStatsPopup();
+      updateStatsPopup(player);
+    }
     $("#alert_middle #pole_1_middle").css("background-color", teams.left.side == "ct" ? COLOR_NEW_CT : COLOR_NEW_T);
     $("#alert_middle #pole_2_middle").css("background-color", teams.right.side == "ct" ? COLOR_NEW_CT : COLOR_NEW_T);
     $("#alert_middle #alert_text_middle")
       .text("MATCH PAUSED")
       .css("color", COLOR_WHITE);
+
   } else if (type == "timeout_t") {
     if (phase.phase_ends_in) {
       var clock_time = Math.abs(Math.ceil(phase.phase_ends_in));
       var count_minute = Math.floor(clock_time / 60);
       var count_seconds = clock_time - count_minute * 60;
       if (count_seconds < 10) {
+        //hideStatsPopup();
         count_seconds = "0" + count_seconds;
       }
       $("#round_timer_text")
@@ -610,6 +640,7 @@ function updateStatePaused(phase, type, previously) {
       var count_minute = Math.floor(clock_time / 60);
       var count_seconds = clock_time - count_minute * 60;
       if (count_seconds < 10) {
+        //hideStatsPopup();
         count_seconds = "0" + count_seconds;
       }
       $("#round_timer_text")
@@ -630,16 +661,16 @@ function updateStatePaused(phase, type, previously) {
     .addClass("animated fadeInUp");
 }
 
-function updateObserved(observed) {
+function updateObserved(observed, player) {
   if (observed && observed.steamid != 1 && observed.getStats()) {
     $("#observed").css("opacity", 1);
-    fillObserved(observed);
+    fillObserved(observed, player);
   } else {
     $("#observed").css("opacity", 0);
   }
 }
 
-function fillObserved(obs) {
+function fillObserved(obs, player) {
   let stats = obs.getStats();
   let weapons = obs.weapons;
   team_color = obs.team == "CT" ? COLOR_NEW_CT : COLOR_NEW_T;
@@ -647,7 +678,6 @@ function fillObserved(obs) {
   $("#obs_lane3_left_pole").css("background-color", team_color);
   $("#obs_lane3_right_pole").css("background-color", team_color);
   //#endregion
-
   $("#obs_alias_text").text(obs.name);
   $("#obs_alias_text").css("color", team_color);
   if (obs.real_name && obs.real_name != obs.name) {
@@ -655,6 +685,8 @@ function fillObserved(obs) {
   } else {
     $("#obs_realname_text").text("");
   }
+  $("#year").text(obs.year);
+  $("#major").text(obs.major);
 
   // Logic for Team Image
   if (obs.team == "CT") {
@@ -716,6 +748,8 @@ function fillObserved(obs) {
     $("#obs_health_text").css("color", COLOR_WHITE);
   }
 
+  $("#obs_left_section").css('background', team_color);
+
   $("#obs_armor_text").text(stats.armor);
   $("#obs_armor_img").removeClass();
   if (stats.helmet) {
@@ -742,6 +776,12 @@ function fillObserved(obs) {
   $("#obs_assists_text").text(stats.assists);
   $("#obs_deaths_d").css("color", team_color);
   $("#obs_deaths_text").text(stats.deaths);
+  $("#obs_adr_adr").css("color", team_color);
+  if (player_adr[player.name] == undefined) {
+    $("#obs_adr_text").text(0);
+  } else {
+    $("#obs_adr_text").text(Math.floor(player_adr[obs.name]));
+  }
 
   $("#obs_reserve").css("color", team_color);
 
@@ -912,15 +952,16 @@ function fillPlayer(player, nr, side, observed, phase, previously) {
     $bottom.find("#player_bomb_kit_image").css("opacity", 0);
     $bottom.find("#player_armor_image").css("opacity", 0);
     $top.find("#player_health_text").css("opacity", 0);
+
     $player.find(".player_dead").css("opacity", 1);
     if (side.substr(8) == "left") {
       $player.find("#player_alias_text").css("left", "-35px");
-      $player.find("#player_current_money_text").css("left", "-55px");
+      $player.find("#player_current_money_text").css("left", "-45px");
       $player.find("#player_skull").css("left", "-55px");
       $player.find("#player_round_kills_text").css("left", "-35px");
     } else if (side.substr(8) == "right") {
       $player.find("#player_alias_text").css("right", "-35px");
-      $player.find("#player_current_money_text").css("left", "65px");
+      $player.find("#player_current_money_text").css("left", "45px");
       $player.find("#player_skull").css("right", "-55px");
       $player.find("#player_round_kills_text").css("right", "-35px");
     }
@@ -1641,3 +1682,123 @@ function updateADR(players) {
     }
   }
 }
+
+function updateStatsPopup(players) {
+  for (var i = 0; i < 10; i++) {
+    var j = i + 1;
+    $("#statp" + (j) + " #pname").text(players[i].name);
+    $("#statp" + (j) + " #padr").text(player_adr[players[i].name]);
+    $("#statp" + (j) + " #pkills").text(players[i].match_stats.kills);
+    $("#statp" + (j) + " #passists").text(players[i].match_stats.assists);
+    $("#statp" + (j) + " #pdeaths").text(players[i].match_stats.deaths);
+
+  }
+}
+
+function updatePlayerStats(data) {
+  const tl = new TimelineMax();
+  var players_right = document.querySelector("#players_right");
+  var players_left = document.querySelector("#players_left");
+  var player_stats = document.querySelector("#player_stats_popup");
+  var left_playerheader = document.querySelector("#players_header");
+  var player1 = document.querySelector("#player1_stats");
+  var player2 = document.querySelector("#player2_stats");
+  var player3 = document.querySelector("#player3_stats");
+  var player4 = document.querySelector("#player4_stats");
+  var player5 = document.querySelector("#player5_stats");
+  document.addEventListener('keydown', function (event) {
+    var p1 = data.getPlayer(1);
+    var p2 = data.getPlayer(2);
+    var p3 = data.getPlayer(3);
+    var p4 = data.getPlayer(4);
+    var p5 = data.getPlayer(5);
+    var p6 = data.getPlayer(6);
+    var p7 = data.getPlayer(7);
+    var p8 = data.getPlayer(8);
+    var p9 = data.getPlayer(9);
+    var p10 = data.getPlayer(10);
+    if (event.keyCode == 37) {
+      tl.fromTo(player_stats, 1, { height: "0%" }, { height: "80%" })
+        .fromTo(players_right, 1, { opacity: "1" }, { opacity: "0" }, "-=1")
+        .fromTo(players_left, 1, { opacity: "1" }, { opacity: "0" }, "-=1")
+        .fromTo(player_stats, 1, { opacity: "0" }, { opacity: "1" }, "-=1")
+        .fromTo(left_playerheader, 1, { opacity: "0" }, { opacity: "1" }, "-=1")
+        .fromTo(player1, 1, { opacity: "0" }, { opacity: "1" }, "-=.5")
+        .fromTo(player2, 1, { opacity: "0" }, { opacity: "1" }, "-=1")
+        .fromTo(player3, 1, { opacity: "0" }, { opacity: "1" }, "-=1")
+        .fromTo(player4, 1, { opacity: "0" }, { opacity: "1" }, "-=1")
+        .fromTo(player5, 1, { opacity: "0" }, { opacity: "1" }, "-=1");;
+      $("#player1_k").text(p1.match_stats.kills);
+      $("#player1_a").text(p1.match_stats.assists);
+      $("#player1_d").text(p1.match_stats.deaths);
+      $("#player1_adr").text(Math.trunc(player_adr[p1.name]));
+      $("#player2_k").text(p2.match_stats.kills);
+      $("#player2_a").text(p2.match_stats.assists);
+      $("#player2_d").text(p2.match_stats.deaths);
+      $("#player2_adr").text(Math.trunc(player_adr[p2.name]));
+      $("#player3_k").text(p3.match_stats.kills);
+      $("#player3_a").text(p3.match_stats.assists);
+      $("#player3_d").text(p3.match_stats.deaths);
+      $("#player3_adr").text(Math.trunc(player_adr[p3.name]));
+      $("#player4_k").text(p3.match_stats.kills);
+      $("#player4_a").text(p3.match_stats.assists);
+      $("#player4_d").text(p3.match_stats.deaths);
+      $("#player4_adr").text(Math.trunc(player_adr[p3.name]));
+      $("#player5_k").text(p3.match_stats.kills);
+      $("#player5_a").text(p3.match_stats.assists);
+      $("#player5_d").text(p3.match_stats.deaths);
+      $("#player5_adr").text(Math.trunc(player_adr[p3.name]));
+    }
+    if (event.keyCode == 39) {
+      tl.fromTo(player_stats, 1, { height: "80%" }, { height: "0%" })
+        .fromTo(player_stats, 1, { opacity: "1" }, { opacity: "0" }, "-=1.5")
+        .fromTo(players_right, 1, { opacity: "0" }, { opacity: "1" }, "-=1")
+        .fromTo(players_left, 1, { opacity: "0" }, { opacity: "1" }, "-=1");
+    }
+  });
+}
+
+
+//comes with animations.
+function showStatsPopup() {
+  console.log("Its Paused");
+  const tl = new TimelineMax();
+  var stats = document.querySelector("#stats");
+  tl.fromTo(stats, 1, { height: "0%" }, { height: "60%" })
+    .fromTo(stats, 1, { opacity: "0" }, { opacity: "1" }, "-=1.5");
+
+  $("#observed")
+    .css("opacity", 0)
+    .removeClass("animated fadeOutUp");
+  $("#players_right")
+    .css("opacity", 0)
+    .removeClass("animated fadeOutUp");
+  $("#players_left")
+    .css("opacity", 0)
+    .removeClass("animated fadeOutUp");
+  //$("#stats")
+  //.css("opacity", 1)
+  //.addClass("animated fadeInDown").fadeIn(1200);
+}
+
+//Currently does not have animations
+function hideStatsPopup() {
+  console.log("Not Paused");
+  animateElement("#stats", "fadeOutDown", function () {
+    $("#stats")
+      .css("opacity", 0)
+      .removeClass("animated fadeOutUp");
+  });
+
+  $("#observed")
+    .css("opacity", 1)
+    .removeClass("animated fadeOutUp");
+  $("#players_right")
+    .css("opacity", 1)
+    .removeClass("animated fadeOutUp");
+  $("#players_left")
+    .css("opacity", 1)
+    .removeClass("animated fadeOutUp");
+}
+
+

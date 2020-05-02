@@ -278,6 +278,8 @@ function setHUD(data) {
 
 function loadPlayer(player) {
     $("#sid").val(player ? player.sid : "");
+    $("#major").val(player ? player.major : "");
+    $("#year").val(player ? player.year : "");
     $("#real_name").val(player ? player.real_name : "");
     $("#vis_name").val(player ? player.displayed_name : "");
     $("#country").val(player ? player.country_code : "default");

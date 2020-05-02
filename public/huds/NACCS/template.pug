@@ -2,6 +2,7 @@ html
   head
     script(src="/socket.io/socket.io.js")
     script(src="http://code.jquery.com/jquery-2.1.4.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha256-ABrLsV2caVEMCBfm3eNhv/CYQG+tGCqzw2f4b/Pag0M=" crossorigin="anonymous")
     script.
       var ip = "#{ip}",
       port = "#{port}",
@@ -22,8 +23,75 @@ html
     script(src=hud)
     link(rel='stylesheet', href=css)
     link(rel='stylesheet', href=anim)
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap' rel='stylesheet')
   body
     section
+      #stats
+        #sleft_team
+          #stat_header
+          #statp1
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
+          #statp2
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
+          #statp3
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
+          #statp4
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
+          #statp5
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
+        #rounds 
+        #sright_team
+          #stat_header
+          #statp6
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
+          #statp7
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
+          #statp8
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
+          #statp9
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
+          #statp10
+            #pname
+            #padr
+            #pkill
+            #passists
+            #pdeaths
       #top_panel
         #left_team
           #logo
@@ -31,7 +99,6 @@ html
           #main TEAM NAME
           #team_flag
           #best_of
-            .bar
             .block1
             .block2
             .block3
@@ -52,13 +119,13 @@ html
               |0:00
           #round_number
             |Round Number
+          #best_of_text
         #right_team
           #logo
             img#team_logo
           #main TEAM NAME
           #team_flag
           #best_of
-            .bar
             .block1
             .block2
             .block3
@@ -99,6 +166,10 @@ html
       #observed
         #obs_avatar
           img#obs_img
+        #obs_player_info
+          span#year Freshman
+          span#spacer - 
+          span#major Computer Science
         #obs_lane1
         #obs_lane2
           #obs_team
@@ -141,12 +212,17 @@ html
                 |D
               #obs_deaths_text
                 | 0
+            #obs_adr
+              #obs_adr_adr
+                |ADR
+              #obs_adr_text
+                | 0
+          #obs_right_section
             #obs_nades
               #obs_nade1
               #obs_nade2
               #obs_nade3
               #obs_nade4
-          #obs_right_section
             #obs_bullets_section
             #obs_ammo_section
               #obs_clip
@@ -183,9 +259,6 @@ html
             .box_equip_value
               #equip_text Equipment Value
               #equip_value $41250
-            .box_team_money
-              #money_text Team Money
-              #money_value $80000
             .loss_bonus
               .loss_boxes
                 .loss_4
@@ -198,7 +271,7 @@ html
           #player1
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
@@ -261,7 +334,7 @@ html
           #player2
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
@@ -324,7 +397,7 @@ html
           #player3
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
@@ -387,7 +460,7 @@ html
           #player4
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
@@ -450,7 +523,7 @@ html
           #player5
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
@@ -539,9 +612,6 @@ html
             .box_equip_value
               #equip_text Equipment Value
               #equip_value $41250
-            .box_team_money
-              #money_text Team Money
-              #money_value $80000
             .loss_bonus
               .loss_boxes
                 .loss_4
@@ -554,7 +624,7 @@ html
           #player1
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
@@ -617,7 +687,7 @@ html
           #player2
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
@@ -680,7 +750,7 @@ html
           #player3
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
@@ -743,7 +813,7 @@ html
           #player4
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
@@ -806,7 +876,7 @@ html
           #player5
             .player_main_holder
               .player_side_bar
-              .player_image_holder
+              //.player_image_holder
                 img#player_image
               .player_section_top
                 .player_health_bar
