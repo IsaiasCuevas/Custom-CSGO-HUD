@@ -67,7 +67,7 @@ function updatePage(data) {
   updateLeague();
   updateRoundNow(round, map);
   updateRoundState(phase, round, map, previously, bomb, players);
-  updateObserved(observed, players);
+  updateObserved(observed);
   updatePlayers(players, observed, phase, previously);
   updateTeamValues(teams.left, teams.right);
   countNades(teams.left, teams.right);
@@ -661,16 +661,16 @@ function updateStatePaused(phase, type, previously, player) {
     .addClass("animated fadeInUp");
 }
 
-function updateObserved(observed, player) {
+function updateObserved(observed) {
   if (observed && observed.steamid != 1 && observed.getStats()) {
     $("#observed").css("opacity", 1);
-    fillObserved(observed, player);
+    fillObserved(observed);
   } else {
     $("#observed").css("opacity", 0);
   }
 }
 
-function fillObserved(obs, player) {
+function fillObserved(obs) {
   let stats = obs.getStats();
   let weapons = obs.weapons;
   team_color = obs.team == "CT" ? COLOR_NEW_CT : COLOR_NEW_T;
@@ -777,7 +777,7 @@ function fillObserved(obs, player) {
   $("#obs_deaths_d").css("color", team_color);
   $("#obs_deaths_text").text(stats.deaths);
   $("#obs_adr_adr").css("color", team_color);
-  if (player_adr[player.name] == undefined) {
+  if (player_adr[obs.name] == undefined) {
     $("#obs_adr_text").text(0);
   } else {
     $("#obs_adr_text").text(Math.floor(player_adr[obs.name]));
