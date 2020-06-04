@@ -478,24 +478,24 @@ body {
   margin-top: -45px;
 }
 #right_bomb_bar {
-  width: 250px;
-  height: 10px;
+  width: 100px;
+  height: 45px;
   position: relative;
   background-color: var(--color-bomb);
   opacity: 0;
-  margin-top: -25px;
-  left: 125%;
+  margin-top: -45px;
+  left: 120%;
 
 }
 
 #left_bomb_bar {
   width: 275px;
-  height: 10px;
+  height: 45px;
   position: relative;
   background-color: var(--color-bomb);
   opacity: 0;
-  margin-top: -15px;
-  left: -113%;
+  margin-top: -45px;
+  left: -117%;
 }
 
 #right_bomb_logo{
@@ -544,7 +544,7 @@ body {
   position: relative;
   width: 391px;
   opacity: 0;
-  margin-top: -45px;
+  margin-top: -60px;
 }
 
 #right_defuse_holder{
@@ -554,29 +554,29 @@ body {
   position: relative;
   width: 391px;
   opacity: 0;
-  margin-top: -25px;
+  margin-top: -45px;
   border-right: 1px solid black;
 }
 
 #left_defuse_bar {
   width: 320px;
-  height: 10px;
+  height: 45px;
   position: relative;
   background-color: var(--color-defuse);
   opacity: 0;
-  left: -80%;
-  margin-top: -10px;
+  left: -100%;
+  margin-top: -30px;
 
 }
 
 #right_defuse_bar {
-  width: 320px;
-  height: 10px;
+  width: 340px;
+  height: 45px;
   position: relative;
   background-color: var(--color-defuse);
   opacity: 0;
-  left: 145%;
-  margin-top: -25px;
+  left: 126%;
+  margin-top: -30px;
 }
 
 #right_kit_logo{
@@ -847,7 +847,7 @@ body {
   text-align: left;
   vertical-align: text-bottom;
   line-height: 36px;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: normal;
   color: var(--white-full);
 }
@@ -877,7 +877,7 @@ body {
   text-align: left;
   vertical-align: text-bottom;
   line-height: 36px;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: normal;
   color: var(--white-full);
 }
@@ -923,7 +923,7 @@ body {
   font-family: "Roboto", sans-serif;
   text-align: left;
   vertical-align: text-bottom;
-  line-height: 36px;
+  line-height: 30px;
   font-size: 20px;
   font-weight: normal;
   color: var(--white-full);
@@ -1050,7 +1050,7 @@ body {
   width: 100px;
   height: 25px;
   position: absolute;
-  left: 110px;
+  left: 105px;
   top: 10px;
 }
 
@@ -2248,6 +2248,7 @@ body {
 #player_spec_bar {
   width: 100%;
   height: 75%;
+  top: 2px;
   position: relative;
 }
 
@@ -2255,7 +2256,7 @@ body {
   width: 180px;
   height: 45px;
   position: absolute;
-  top: 0px;
+  top: 2px;
   background-color: var(--main-panel-color);
   z-index: -1;
 }
@@ -2804,8 +2805,8 @@ body {
 
 .obs_kit {
   background-image: url("/files/img/elements/icon_defuse_default.png");
-  max-height: 30px;
-  max-width: 30px;
+  max-height: 25px;
+  max-width: 25px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

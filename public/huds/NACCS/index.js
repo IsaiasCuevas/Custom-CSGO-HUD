@@ -495,14 +495,14 @@ function updateStateDefuse(phase, bomb, players) {
           hasKit = false;
         } else {
           defuse_seconds = 5;
-          divider = 2;
+          divider = 1;
           hasKit = true;
         }
         isDefusing = true;
       }
       var defuse_timer_css = {
         opacity: 1,
-        width: (65 / divider) * (parseFloat(phase.phase_ends_in) / defuse_seconds) + "%"
+        width: (100 / divider) * (parseFloat(phase.phase_ends_in) / defuse_seconds) + "%"
       };
       let defusing_side = teams.left.side == "ct" ? "#left_team" : "#right_team";
       $(defusing_side + " #bomb_defuse #icon").css("opacity", hasKit ? 1 : 0);
